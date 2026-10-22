@@ -1,0 +1,105 @@
+<!-- popup-quickview  -->
+ <div class="row g-4">
+    <div class="col-md-5">
+        {% if product.product_image %}
+            <img src="{{ product.product_image.url }}"
+                 alt="{{ product.name }}"
+                 class="img-fluid rounded w-100">
+        {% endif %}
+    </div>
+
+    <div class="col-md-7">
+        <h4>{{ product.name }}</h4>
+
+        {% if product.price %}
+            <h5 class="text-danger">₹{{ product.price }}</h5>
+        {% endif %}
+
+        {% if product.description %}
+            <p>{{ product.description }}</p>
+        {% endif %}
+
+        {% if product.variants.all %}
+            <label for="quick-view-variant">Select variant</label>
+            <select id="quick-view-variant" class="form-select mb-3">
+                {% for variant in product.variants.all %}
+                    <option value="{{ variant.id }}">
+                        {{ variant.color }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% endif %}
+
+        <a href="{% url 'product_detail' product.slug %}"
+           class="btn btn-outline-dark">
+            View Full Details
+        </a>
+    </div>
+</div>
+
+
+
+<!-- <div id="popup-quickview" class="modal fade" tabindex="-1">
+    <div class="modal-dialog quickview-dialog">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="ti-close"></i></button>
+            <div class="modal-body d-flex">
+                <div class="product-details">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="product-single-img">
+                                <div class="modal-product">
+                                    <div class="item">
+                                        {% if product.product_image %}
+                                        <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                         {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="product-single-content">
+                                <h5>{{ product.name }}</h5>
+                                {% if product.price %}
+                                <h6>₹{{ product.price }}</h6>
+                                {% endif %}
+                                <ul class="rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </ul>
+                                <p>{{ product.description }}
+                                </p>
+                                <form method="POST" action="{% url 'add_to_cart' product.slug %}">
+                                    {% csrf_token %}
+                                
+                                    <div class="pro-single-btn">
+                                        <div class="quantity cart-plus-minus">
+                                            <input type="text" name="quantity" id="quantity" value="1">
+                                            <div class="dec qtybutton">-</div>
+                                            <div class="inc qtybutton"></div>
+                                        </div>
+                                        <input type="hidden" name="variant_id" id="selected-variant-id" value="{{ first_variant.id }}">
+                                        <button type="submit" class="theme-btn">Add to cart</button>
+                                        
+                                    </div>
+                                </form>
+                                <div class="social-share">
+                                    <span>Share with : </span>
+                                    <ul class="socialLinks">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>                                       
+                                       
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- popup-quickview -->

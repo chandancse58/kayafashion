@@ -1,0 +1,310 @@
+ {% load static %}
+ <!-- start of wpo-site-footer-section -->
+<footer class="wpo-site-footer">
+    <div class="wpo-upper-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget about-widget">
+                        <div class="logo widget-title">
+                            <img src="{% static 'images/kaya/logo-footer.png' %}" alt="Kaya Fashion">
+                        </div>
+                        <p>Redefining everyday elegance. Discover handcrafted silks, ethnic wear, and modern fashion designed for every special occasion.</p>
+                        <div class="social-widget">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="widget link-widget">
+                        <div class="widget-title">
+                            <h3>Customer Care</h3>
+                        </div>
+                        <ul>
+                            <li><a href="shop.html">About Us</a></li>
+                            <li><a href="shop.html">Contact Us</a></li>
+                            <li><a href="shop.html">Return Policy</a></li>
+                            <li><a href="shop.html">Shipping Policy</a></li>
+                            <li><a href="shop.html">Privacy Policy</a></li>
+                            <li><a href="shop.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget blog-widget">
+                        <div class="widget-title">
+                            <h3>Get In Touch</h3>
+                        </div>
+                        <p><strong>Emailid:<br></strong>kayafashion_india@gmail.com</p>
+                        <p><i class="fa fa-whatsapp"></i>
+                        <a href="https://api.whatsapp.com/send?text=Hello&amp;phone=918378936303"><strong>+91 8378936303</strong></a><br>
+                        <i class="fa fa-phone"></i>
+                        <a href="tel:+918378936303"><strong>+91 8378936303</strong></a></p>
+                    </div>
+                </div>
+
+                <div class="col col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="widget newsletter-widget">
+                        <div class="widget-title">
+                            <h3>Newsletter</h3>
+                        </div>
+                        <p>Subscribe to our newsletter and get updates about latest offers.</p>
+                        <form>
+                            <div class="input-1">
+                                <input type="email" class="form-control" placeholder="Your Email Address.. " required="">
+                            </div>
+                            <div class="submit clearfix">
+                                <button type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <div class="wpo-lower-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12">
+                    <p class="copyright"> Copyright © 2026 Powered by <a href="/">Kaya Fashion</a>. All
+                        Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end of wpo-site-footer-section -->
+
+
+
+    <!-- All JavaScript files
+================================================== -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- Plugins for this template -->
+<script src="{% static 'js/modernizr.custom.js' %}"></script>
+<script src="{% static 'js/jquery.dlmenu.js' %}"></script>
+<script src="{% static 'js/jquery-plugin-collection.js' %}"></script>
+<!-- Custom script for this template -->
+<script src="{% static 'js/script.js' %}"></script>
+
+
+  
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-slider-dot');
+    const prevBtn = document.querySelector('.hero-slider-prev');
+    const nextBtn = document.querySelector('.hero-slider-next');
+    const sliderContainer = document.querySelector('.hero-slider');
+
+    if (slides.length <= 1) return;
+
+    let currentIndex = 0;
+    let autoSlideInterval = null;
+    const intervalTime = 5000; // 5 seconds interval
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        const newIndex = (currentIndex + 1) % slides.length;
+        showSlide(newIndex);
+    }
+
+    function prevSlide() {
+        const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(newIndex);
+    }
+
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+    }
+
+    // Event listeners for controls
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            startAutoSlide();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            startAutoSlide();
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            startAutoSlide();
+        });
+    });
+
+    // Pause slideshow on mouse hover
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Initialize auto play
+    startAutoSlide();
+});
+
+
+$(document).ready(function(){
+    $('.bestseller-slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
+// Hero slider background setting
+    function sliderBgSetting() {
+        if ($(".hero-slider .slide").length) {
+            $(".hero-slider .slide").each(function() {
+                var $this = $(this);
+                var img = $this.find(".slider-bg").attr("src");
+
+                $this.css({
+                    backgroundImage: "url("+ img +")",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center center"
+                })
+            });
+        }
+    }
+
+
+    //Setting hero slider
+    function heroSlider() {
+        if ($(".hero-slider").length) {
+            $(".hero-slider").slick({
+                autoplay: true,
+                autoplaySpeed: 6000,
+                pauseOnHover: true,
+                arrows: true,
+                prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+                nextArrow: '<button type="button" class="slick-next">Next</button>',
+                dots: true,
+                fade: true,
+                cssEase: 'linear'
+            });
+        }
+    }
+	
+	function pageLoader() {
+        if($('.page-loader').length) {
+            $('.page-loader').delay(100).fadeOut(500, function() {
+
+                //Active heor slider
+                heroSlider();
+
+            });
+        }
+    }
+	
+	
+	
+	 //$(window).on('load', function() {
+	           // pageLoader();
+
+            sliderBgSetting();
+
+      //  });
+        
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('review-form');
+    const toast = document.getElementById('toast-notification');
+    const toastMessage = document.getElementById('toast-message');
+
+    function showToast(message, type = 'success') {
+        toastMessage.textContent = message;
+        toast.className = `toast-notification show ${type}`;
+        
+        setTimeout(() => {
+            toast.className = 'toast-notification';
+        }, 4000);
+    }
+
+    // Frontend Validation on Submit
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            const name = document.getElementById('review-name').value.trim();
+            const email = document.getElementById('review-email').value.trim();
+            const comment = document.getElementById('review-comment').value.trim();
+            const rating = document.querySelector('input[name="stars"]:checked');
+
+            if (!rating || !name || !email || !comment) {
+                e.preventDefault(); // Stop form submission
+                showToast('Please fill out all fields and select a star rating.', 'error');
+            }
+        });
+    }
+
+    // Optional: Handle Django Messages rendered as a toast if passed via template context
+   
+});
+
+
+
+</script>
+
+</body>
+</html>

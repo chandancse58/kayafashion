@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Website Settings</h2>
+        <a href="{% url 'setting_create' %}" class="btn btn-primary">Add Setting</a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Logo</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.site_title }}</td>
+                <td>
+                    {% if setting.logo %}
+                        <img src="{{ setting.logo.url }}" alt="Logo" height="30">
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+                <td>{{ setting.email }}</td>
+                <td>{{ setting.contact_number }}</td>
+                <td>{{ setting.city }}</td>
+                <td>
+                    <a href="{% url 'setting_update' setting.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'setting_delete' setting.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="7" class="text-center">No settings configured.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

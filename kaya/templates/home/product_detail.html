@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+ 
+/* Style for the active/selected thumbnail */
+.vertical-container .image-item.active img {
+    border: 1px solid #b13453 !important; /* Change #000 to your theme's primary color */
+    opacity: 1;
+}
+
+/* Optional: Slight fade for unselected thumbnails */
+.vertical-container .image-item img {
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+}
+.vertical-container .image-item.active img {
+    opacity: 1;
+}
+    </style>
+ <!-- start wpo-page-title -->
+<section class="wpo-page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="wpo-breadcumb-wrap">
+                    <h2>Product</h2>
+                    <ol class="wpo-breadcumb-wrap">
+                        <li><a href="/">Home</a></li>
+                        <li>Product Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
+<!-- end page-title -->
+
+<section class="shop-section section-padding">
+    <div class="product-single-section section-padding">
+        <div class="container">
+            <div class="product-details">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="row product-gallery">
+                                <!-- Thumbnail images -->
+                                <div class="col-3 col-md-2">
+                                    <div class="vertical-container" id="product-thumbnails">
+                                        {% for gallery_item in product.images.all %}
+                                            <button
+                                                type="button"
+                                                class="image-item {% if forloop.first %}active{% endif %}"
+                                                data-variant-id="{{ gallery_item.variant_id|default_if_none:'' }}"
+                                                data-image-src="{{ gallery_item.image.url }}"
+                                                aria-label="View product image {{ forloop.counter }}"
+                                                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                                            >
+                                                <img
+                                                    src="{{ gallery_item.image.url }}"
+                                                    alt="{{ gallery_item.alt_text|default:product.name }}"
+                                                    loading="lazy"
+                                                >
+                                            </button>
+                                        {% empty %}
+                                            <p>No images available.</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <!-- Main image preview -->
+                                <div class="col-9 col-md-10">
+                                    <div class="product-main-image" id="product-zoom-container">
+                                        {% with first_image=product.images.all|first %}
+                                            {% if first_image %}
+                                                <img
+                                                    id="main-product-image"
+                                                    src="{{ first_image.image.url }}"
+                                                    alt="{{ first_image.alt_text|default:product.name }}"
+                                                >
+                                            {% else %}
+                                                <p>No product image available.</p>
+                                            {% endif %}
+                                        {% endwith %}
+
+                                        <div id="zoom-lens" aria-hidden="true"></div>
+                                        <div id="zoom-result" aria-hidden="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+
+
+                        
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="product-single-content">
+                            <h5>{{ product.name }}</h5>
+                            <div class="price-container" style="display: flex; gap: 15px; align-items: center;font-size: 20px;margin-bottom: 15px;">
+                                <div class="delprice"><del class="old-price">₹{{ product.mrp_price }}</del></div>
+                                <div class="delprice" style="font-weight:600;color: #b13453;">₹{{ product.dist_price }}</div>
+                            </div>
+                            
+                            <ul class="rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            </ul>
+                            <p>{{ product.description | safe}}
+                            </p>
+                            <div class="product-filter-item color">
+                                <div class="color-name">
+                                    <span>Color :</span>
+                                    <ul>
+                                        {% for variant in product.variants.all %}
+                                            {% if variant.color %}
+                                            <li class="color1">
+                                                <!-- Added data-variant-id to the input/label -->
+                                                <input id="color-{{ variant.id }}" type="radio" name="color" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" {% if forloop.first %}checked{% endif %}>
+                                                <label for="color-{{ variant.id }}" style="background-color: {{ variant.color|lower }};"></label>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                   
+                                </div>
+                            </div>
+                            <form method="POST" action="{% url 'add_to_cart' product.slug %}">
+                                {% csrf_token %}
+                                <div class="pro-single-btn">
+                                    <div class="quantity cart-plus-minus">
+                                        <input type="text" name="quantity" value="1">
+                                        <div class="dec qtybutton"></div>
+                                        <div class="inc qtybutton"></div>
+                                    </div>
+                                    <input type="hidden" name="variant_id" id="selected-variant-id" value="{{ first_variant.id }}">
+                                    <!-- <a href="#" class="theme-btn">Add to cart</a> -->
+                                    <button type="submit" class="theme-btn">ADD To CART</button>
+                                    <button type="submit" class="theme-btn">BUY IT NOW</button>
+                                </div>
+                            </form>
+                            <div class="social-share">
+                                <span>Share with : </span>
+                                <ul class="socialLinks">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>                                 
+                                    
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="product-tab-area">
+                <ul class="nav nav-mb-3 main-tab" id="tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="descripton-tab" data-bs-toggle="pill" data-bs-target="#descripton" type="button" role="tab" aria-controls="descripton" aria-selected="true">Descripton</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="Information-tab" data-bs-toggle="pill" data-bs-target="#Information" type="button" role="tab" aria-controls="Information" aria-selected="false">Additional Information</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="Ratings-tab" data-bs-toggle="pill" data-bs-target="#Ratings" type="button" role="tab" aria-controls="Ratings" aria-selected="false">Ratings</button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="descripton" role="tabpanel" aria-labelledby="descripton-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="Descriptions-item">                                        
+                                        <div class="Description-table">
+                                            <h4>Find Your Category :</h4>
+                                             {{ product.description | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    <div class="tab-pane fade" id="Information" role="tabpanel" aria-labelledby="Information-tab">
+                        <div class="container">
+                            <div class="Additional-wrap">
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{ product.key_features | safe}}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="tab-pane fade" id="Ratings" role="tabpanel" aria-labelledby="Ratings-tab">
+                        <div class="container">
+                            <div class="rating-section">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-12 col-12">
+                                        <div class="rating-bottom">
+                                            <div class="write-review-btn">
+                                                <button class="theme-btn">Write A Review</button>
+                                            </div>
+                                            <!-- Toast Notification Element 
+                                            <div id="toast-notification" class="toast-notification">
+                                                <span id="toast-message"></span>
+                                            </div>-->
+                                            <!--start form review-->
+                                            
+                                            <div class="rating-give-section-items">
+                                                <div class="review-btn-btn">
+                                                    <button class="theme-btn s2">Cancel Review</button>
+                                                </div>
+
+                                                <div class="rating-give-section">
+
+                                                    <div class="rating-give-section-wrap">
+                                                        <form id="review-form" method="POST">
+                                                            {% csrf_token %}
+                                                            <span>Give A Review</span>
+                                                            <div class="give-rating">
+                                                                <label><input type="radio" name="stars" value="1"><span class="icon">★</span></label>
+                                                                <label><input type="radio" name="stars" value="2"><span class="icon">★</span><span class="icon">★</span></label>
+                                                                <label><input type="radio" name="stars" value="3"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span></label>
+                                                                <label><input type="radio" name="stars" value="4"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span></label>
+                                                                <label><input type="radio" name="stars" value="5"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span></label>
+                                                            </div>
+                                                            <small id="rating-error" style="color: red; display: none;">Please select a star rating.</small>
+
+                                                            <div class="form-group">
+                                                                <input type="text" name="name" id="name" placeholder="Your Name..." required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" name="email" id="email" placeholder="Your Email..." required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Your Review..." required></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="submit" class="theme-btn">Submit Review</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!--end form review-->
+                                        {% if reviews %}   
+                                            <div class="review-rating-wrap">
+                                             
+                                                {% for review in reviews %}
+                                                <div class="rating-review">
+                                                    <div class="rating-review-author">
+                                                        
+                                                        <div class="rating-review-author-text">
+                                                            <div class="rating-review-author-text-inner">
+                                                                <ul class="ratting">
+                                                                    {% for i in "12345" %}
+                                                                    
+                                                                    <li>{% if forloop.counter <= review.rating %}
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        {% else %}
+                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                        {% endif %}
+                                                                    </li>
+                                                                    
+                                                                   
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <span>{{ review.created_at|date:"M d, Y" }}</span>
+                                                            </div>
+                                                            <p>{{ review.name }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>{{ review.comment }}</p>
+                                                </div>                                               
+                                                {% endfor %}
+                                               
+                                                <div class="rating-review">
+                                                    <a href="#">Load More</a>
+                                                </div>
+                                            </div>
+                                            {% else %}
+                                                <p>No reviews yet. Be the first to review this product!</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('review-form').addEventListener('submit', function(event) {
+    const starsSelected = document.querySelector('input[name="stars"]:checked');
+    const ratingError = document.getElementById('rating-error');
+
+    if (!starsSelected) {
+        event.preventDefault(); // Stop form submission
+        ratingError.style.display = 'block';
+    } else {
+        ratingError.style.display = 'none';
+    }
+});
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Ensure you have owl.carousel.js loaded as well -->
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('review-form');
+        const toast = document.getElementById('toast-notification');
+        const toastMessage = document.getElementById('toast-message');
+
+        function showToast(message, type = 'success') {
+            if (!toast || !toastMessage) return;
+            toastMessage.textContent = message;
+            toast.className = `toast-notification show ${type}`;
+            
+            setTimeout(() => {
+                toast.className = 'toast-notification';
+            }, 4000);
+        }
+
+        // Frontend Validation on Submit (if review form exists)
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                const nameField = document.getElementById('name');
+                const emailField = document.getElementById('email');
+                const commentField = document.getElementById('comment');
+                
+                const name = nameField ? nameField.value.trim() : '';
+                const email = emailField ? emailField.value.trim() : '';
+                const comment = commentField ? commentField.value.trim() : '';
+                const rating = document.querySelector('input[name="stars"]:checked');
+
+             
+                if (!rating || !name || !email || !comment) {
+                    e.preventDefault();
+                    showToast('Please fill out all fields and select a star rating.', 'error');
+                }
+                
+            });
+        }
+    });
+
+
+    
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const gallery = document.getElementById("product-thumbnails");
+        const mainImage = document.getElementById("main-product-image");
+        const colorInputs = document.querySelectorAll(
+            'input[name="color"]'
+        );
+
+        if (!gallery || !mainImage) return;
+
+        const thumbnails = Array.from(
+            gallery.querySelectorAll(".image-item")
+        );
+
+        function showImage(thumbnail) {
+            if (!thumbnail || thumbnail.hidden) return;
+
+            const imageSrc = thumbnail.dataset.imageSrc;
+            if (!imageSrc) return;
+
+            // Display the exact image clicked by the user.
+            mainImage.src = imageSrc;
+
+            const thumbImage = thumbnail.querySelector("img");
+            if (thumbImage) {
+                mainImage.alt = thumbImage.alt;
+            }
+
+            // Update active thumbnail styling and accessibility.
+            thumbnails.forEach(function (item) {
+                const isActive = item === thumbnail;
+
+                item.classList.toggle("active", isActive);
+                item.setAttribute("aria-pressed", String(isActive));
+            });
+        }
+
+        function updateGalleryForVariant(variantId) {
+            const selectedId = String(variantId ?? "");
+            const visibleImages = [];
+
+          
+
+            thumbnails.forEach(function (thumbnail) {
+                const imageVariantId = String(
+                    thumbnail.dataset.variantId || ""
+                );
+
+                // Variant-specific images plus shared images.
+                const matches =
+                    !imageVariantId ||
+                    imageVariantId === selectedId;
+
+                thumbnail.hidden = !matches;
+
+                if (matches) {
+                    visibleImages.push(thumbnail);
+                }
+            });
+
+            // Always select the first image for the chosen color.
+            if (visibleImages.length > 0) {
+                showImage(visibleImages[0]);
+            } else {
+                mainImage.removeAttribute("src");
+                mainImage.alt = "No image available for this color";
+                thumbnails.forEach(function (thumbnail) {
+                    thumbnail.classList.remove("active");
+                    thumbnail.setAttribute("aria-pressed", "false");
+                });
+            }
+        }
+
+        // Clicking a thumbnail shows its corresponding main image.
+        gallery.addEventListener("click", function (event) {
+            const thumbnail = event.target.closest(".image-item");
+
+            if (!thumbnail || !gallery.contains(thumbnail)) return;
+
+            showImage(thumbnail);
+        });
+
+        // Selecting a color filters the gallery.
+        colorInputs.forEach(function (input) {
+            input.addEventListener("change", function () {
+                if (this.checked) {
+                    updateGalleryForVariant(
+                        this.dataset.variantId || this.value
+                    );
+                }
+            });
+        });
+
+        // Initialize using the selected color.
+        const selectedColor = document.querySelector(
+            'input[name="color"]:checked'
+        );
+
+        if (selectedColor) {
+            updateGalleryForVariant(
+                selectedColor.dataset.variantId || selectedColor.value
+            );
+        } else if (thumbnails.length > 0) {
+            showImage(thumbnails[0]);
+        }
+    });
+
+    
+/********image zoom*********/
+    
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".product-main-image");
+    const image = document.getElementById("main-product-image");
+
+    if (!container || !image) return;
+
+    const zoomLevel = 2.5;
+
+    container.addEventListener("mouseenter", function () {
+        if (window.innerWidth > 991 && image.complete) {
+            container.classList.add("zoom-active");
+        }
+    });
+
+    container.addEventListener("mousemove", function (event) {
+        if (window.innerWidth <= 991) return;
+
+        const rect = container.getBoundingClientRect();
+
+        // Cursor position relative to the main image container.
+        const x = Math.max(
+            0,
+            Math.min(1, (event.clientX - rect.left) / rect.width)
+        );
+
+        const y = Math.max(
+            0,
+            Math.min(1, (event.clientY - rect.top) / rect.height)
+        );
+
+        // Move the zoom origin with the cursor.
+        image.style.transformOrigin =
+            `${x * 100}% ${y * 100}%`;
+
+        image.style.transform = `scale(${zoomLevel})`;
+    });
+
+    container.addEventListener("mouseleave", function () {
+        container.classList.remove("zoom-active");
+        image.style.transform = "scale(1)";
+        image.style.transformOrigin = "center center";
+    });
+
+    // Reset zoom after selecting another gallery image.
+    image.addEventListener("load", function () {
+        image.style.transform = "scale(1)";
+        image.style.transformOrigin = "center center";
+        container.classList.remove("zoom-active");
+    });
+});
+
+</script>
+
+<!----related-->
+{% if related_products %}
+<section class="pengu-product-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="wpo-section-title">
+                    <h2>related product</h2>
+                    <p>Here is our new arraival products that you may like.</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-wrap">
+            <div class="row">
+                {% for related_product in related_products %}
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="product-single-item">
+                        <div class="image">
+                            {% if related_product.product_image %}
+                            <a href="{% url 'product_detail' related_product.slug %}">
+                                <img src="{{ related_product.product_image.url }}" alt="{{ related_product.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-icon">
+                                <a class="icon" href="wishlist.html">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </a>
+                               
+                            </div>
+                            <!--<ul class="cart-wrap">
+                                <li>
+                                    <a href="cart.html" data-bs-toggle="tooltip" data-bs-html="true" title="Add To Cart"><i class="fi flaticon-shopping-cart"></i></a>
+                                </li>
+                                 <li data-bs-toggle="modal" data-bs-target="#popup-quickview">
+                                    <button data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"><i class="fi ti-eye"></i></button>
+                                </li>
+                                <li>
+                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-html="true" title="Compare"><i class="fa fa-compress" aria-hidden="true"></i></a>
+                                </li> 
+                            </ul>-->
+                            <form method="POST" action="{% url 'add_to_cart' product.slug %}">
+                                {% csrf_token %}
+                                <div class="shop-btn">                                           
+                                    <button type="submit" class="product-btn">Add to cart</button>
+                                    <input type="hidden" name="quantity" id="quantity" value="1">
+                                    <input type="hidden" name="variant_id" id="selected-variant-id" value="{{ product.variants.first.id|default:'' }}">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="text">
+                            <h2><a href="{% url 'product_detail' product.slug %}">{{ related_product.name|truncatechars:30 }}</a></h2>
+                            <div class="price">
+                                {% if related_product.mrp_price %}
+                                <del class="old-price">₹{{ related_product.mrp_price }}</del>
+                                {% endif %}
+                                <span class="present-price">₹{{ related_product.dist_price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center py-5">
+                    <h3>No products found matching your criteria.</h3>
+                </div>
+                {% endfor %}
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+
+
+{% endblock %}

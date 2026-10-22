@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow-sm p-4 text-center">
+        <h2 class="text-success">Order Submitted Successfully!</h2>
+
+        <p class="mt-3">
+            Order Number:
+            <strong>{{ order.order_number }}</strong>
+        </p>
+
+        <p>
+            Payment Status: {{ order.get_payment_status_display }}
+        </p>
+
+        <p>
+            Order Status: {{ order.get_order_status_display }}
+        </p>
+
+        <h4>Total: ₹{{ order.total_amount|floatformat:2 }}</h4>
+
+        <a href="{% url 'cart_view' %}" class="btn btn-dark mt-3">
+            Continue Shopping
+        </a>
+    </div>
+</div>
+{% endblock %}

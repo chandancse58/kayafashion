@@ -1,0 +1,352 @@
+{% load static %}
+
+<!-- start page-wrapper -->
+<div class="page-wrapper">
+
+    <!-- start preloader -->
+    <div class="preloader">
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+                <img src="{% static 'images/preloader.png' %}" alt="Loading...">
+            </div>
+        </div>
+    </div>
+    <!-- end preloader -->
+
+    <!-- Start header -->
+    <header id="header" class="wpo-header-style-4">
+        <div class="wpo-site-header">
+            <nav class="navigation navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        
+                        <!-- Mobile Toggle Button -->
+                        <div class="col-lg-3 col-md-3 col-3 d-lg-none dl-block">
+                            <div class="mobail-menu">
+                                <button type="button" class="navbar-toggler open-btn">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar first-angle"></span>
+                                    <span class="icon-bar middle-angle"></span>
+                                    <span class="icon-bar last-angle"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Logo -->
+                        <div class="col-lg-2 col-md-6 col-6">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/">
+                                    <img src="{% static 'images/kaya/logo-use.png' %}" alt="Logo">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Main Navigation Menu -->
+                        <div class="col-lg-8 col-md-1 col-1">
+                            <div id="navbar" class="collapse navbar-collapse navigation-holder">
+                                <button class="menu-close"><i class="ti-close"></i></button>
+                                <ul class="nav navbar-nav mb-2 mb-lg-0">
+                                    <li><a class="active" href="/">Home</a></li>
+                                    
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Sarees</a>
+                                        <ul class="sub-menu">
+                                            {% for category in categories %}
+                                                <li>
+                                                    <a href="{% url 'product_category_view' category.slug %}">
+                                                        {{ category.name }}
+                                                    </a>
+                                                </li>
+                                            {% empty %}
+                                                <li><a href="#">No categories found</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="{% url 'aboutus' %}">About</a></li>
+                                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Header Right Controls (Cart, Search, User) -->
+                        <div class="col-lg-2 col-md-2 col-2">
+                            <div class="header-right d-flex align-items-center justify-content-end">
+                                
+                                <!-- Cart Icon -->
+                                <div class="mini-cart">
+                                    <button class="cart-toggle-btn"> <i class="fi flaticon-shopping-cart"></i> 
+                                        <span class="cart-count">{{cart_item_count}} {{item.product.slug}}</span></button>
+
+                                    <div class="mini-cart-content">
+                                        <button class="mini-cart-close"><i class="ti-close"></i></button>
+                                        {% if cart_items %}
+                                        <div class="mini-cart-items">
+                                            {% for items in cart_items %}
+                                            <div class="mini-cart-item clearfix">
+                                                <div class="mini-cart-item-image">
+                                                    <a href="">
+                                                        
+                                                        {% if items.product.product_image %}
+                                                        <img src="{{ items.product.product_image.url }}" alt="{{ items.product_name }}"  width="50px" height="50px" style="object-fit: contain;">
+                                                        {% else %}
+                                                            <span>No image</span>
+                                                        {% endif %}
+                                                    
+                                                    </a>
+                                                </div>
+                                                <div class="mini-cart-item-des">
+                                                    <a href="">{{ items.product_name }}</a>
+                                                    <span class="mini-cart-item-price">SKU : {{ items.product_sku }}</span>
+                                                    <span class="mini-cart-item-price">₹{{ items.unit_price|floatformat:2 }} x {{ items.quantity }}</span>
+                                                    <span class="mini-cart-item-quantity">
+                                                        <a data-bs-toggle="tooltip" class="remove-cart-item" data-bs-html="true" title="Remove from Cart" data-item-id="{{ items.id }}" data-url="{% url 'remove_cart_item' items.id %}" href="javascript:void(0);">
+                                                        <i class="ti-close"></i></a></span>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            
+                                        </div>
+                                        <div class="mini-cart-action clearfix">
+                                            <span class="mini-checkout-price">Subtotal: <span id="cart-total">₹{{ total_amount|floatformat:2 }}</span></span>
+                                            <div class="mini-btn">
+                                                <a href="javascript:void(0);" class="view-cart-btn s1" id="view-cart-btn" onclick="paymentpage();">Checkout</a>
+                                                <a href="{% url 'cart_view' %}" class="view-cart-btn">View Cart</a>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <div class="mini-cart-items">
+                                            <div style="text-align:center;margin-bottom: 25px;">
+                                                <p style="font-weight: 500;font-size: 20px;">Your cart is empty.</p>
+                                                <a href="/" class="btn btn-primary" style="color: #fff;background-color: #b13453;border-color: #b13453;">
+                                                    Continue Shopping
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Search Form Toggle -->
+                                <div class="header-search-form-wrapper">
+                                    <div class="cart-search-contact">
+                                        <button class="search-toggle-btn"><i class="fi flaticon-loupe"></i></button>
+                                        <div class="header-search-form">
+                                            <form>
+                                                <div>
+                                                    <input type="text" class="form-control" placeholder="Search here...">
+                                                    <button type="submit"><i class="fi flaticon-loupe"></i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Account/Login Icon -->
+                                <div class="header-login">
+                                    <a class="login-btn" href="#"><i class="fi flaticon-user"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+             <!-- Toast Notification Element -->
+            <div id="toast-notification" class="toast-notification">
+                <span id="toast-message"></span>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show auto-dismiss-alert"
+                        role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+       
+    </header>
+    <!-- end header -->
+
+    <!-- Hero Banner Slider -->
+    <section class="hero-slider">
+        <div class="hero-slider-container">
+            <div class="hero-slider-track">
+                {% for banner in banners %}
+                <div class="hero-slide {% if forloop.first %}active{% endif %}">
+                    {% if banner.link %}
+                        <a href="{{ banner.link }}" class="hero-slide-link">
+                    {% endif %}
+                        <img src="{{ banner.image.url }}" alt="{{ banner.title|default:'Banner' }}" class="hero-slide-image">
+                    {% if banner.link %}
+                        </a>
+                    {% endif %}
+                </div>
+                
+                {% endfor %}
+            </div>
+
+            {% if banners|length > 1 %}
+                <!-- Controls -->
+                <button type="button" class="hero-slider-btn hero-slider-prev" aria-label="Previous slide">&#10094;</button>
+                <button type="button" class="hero-slider-btn hero-slider-next" aria-label="Next slide">&#10095;</button>
+
+                <!-- Navigation Dots -->
+                <div class="hero-slider-dots">
+                    {% for banner in banners %}
+                    <button type="button" 
+                            class="hero-slider-dot {% if forloop.first %}active{% endif %}" 
+                            data-slide="{{ forloop.counter0 }}" 
+                            aria-label="Go to slide {{ forloop.counter }}">
+                    </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- end hero-slider -->
+
+</div>
+<!-- end page-wrapper -->
+ <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+
+ <script src="https://checkout.razorpay.com/v1/magic-checkout.js"></script>
+
+
+<script>
+async function paymentpage() {
+    const button = document.getElementById("view-cart-btn");
+
+    if (!button) {
+        console.error("Button with ID 'view-cart-btn' not found.");
+        return;
+    }
+
+    button.disabled = true;
+    
+
+    try {
+        const response = await fetch("{% url 'create_razorpay_order' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({})
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.order_id) {
+            throw new Error(
+                data.error || "Unable to create payment order."
+            );
+        }
+
+        const options = {
+            key: data.key,
+            amount: '1',    //data.amount
+            currency: data.currency,
+            name: "Kaya Fashion",
+            description: "Order Payment",
+            order_id: data.order_id,
+
+            handler: function (paymentResponse) {
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "{% url 'razorpay_payment_return' %}";
+
+                const csrf = document.createElement("input");
+                csrf.type = "hidden";
+                csrf.name = "csrfmiddlewaretoken";
+                csrf.value = "{{ csrf_token }}";
+                form.appendChild(csrf);
+
+                for (const [name, value] of Object.entries(paymentResponse)) {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = name;
+                    input.value = value;
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            },
+
+            theme: {
+                color: "#3399cc"
+            },
+
+            modal: {
+                ondismiss: function () {
+                    button.disabled = false;
+                }
+            }
+        };
+
+        const razorpay = new Razorpay(options);
+
+        razorpay.on("payment.failed", function (failure) {
+            alert(
+                failure.error.description ||
+                "Payment failed. Please try again."
+            );
+
+            button.disabled = false;
+        });
+
+        razorpay.open();
+
+    } catch (error) {
+        console.error("Payment error:", error);
+        alert(error.message || "Something went wrong.");
+        button.disabled = false;
+    }
+}
+
+// Call the function on button click.
+document.getElementById("view-cart-btn").addEventListener(
+    "click",
+    paymentpage
+);
+</script>
+
+
+
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".auto-dismiss-alert").forEach(function (alert) {
+            setTimeout(function () {
+                alert.classList.remove("show");
+
+                setTimeout(function () {
+                    alert.remove();
+                }, 150);
+            }, 3000);
+        });
+    });
+
+    function showToast(message) {
+        const toast = document.getElementById("toast-notification");
+        const toastMessage = document.getElementById("toast-message");
+
+        toastMessage.textContent = message;
+        toast.classList.add("show");
+
+        clearTimeout(window.toastTimeout);
+
+        window.toastTimeout = setTimeout(function () {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+</script>

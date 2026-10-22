@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- start wpo-page-title -->
+<section class="wpo-page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="wpo-breadcumb-wrap">
+                    <h2>Product</h2>
+                    <ol class="wpo-breadcumb-wrap">
+                        <li><a href="/">Home</a></li>
+                        <li>Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
+<!-- end page-title -->
+
+<section class="shop-section section-padding">
+    <div class="shop-section">
+        <div class="container">
+        <form id="filter-form" name="filter-form" method="GET" action="">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!--filter start--->
+                    <div class="shop-filter-wrap">
+                        <div class="filter-item">
+                            <div class="shop-filter-item">
+                                <h2>Search</h2>
+                                <div class="shop-filter-search">
+                                    
+                                        <div>
+                                            <input type="text" name="search" class="form-control" placeholder="Search">
+                                            <button type="submit"><i class="ti-search"></i></button>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Category List Widget -->
+                        <div class="filter-item">
+                            <div class="shop-filter-item">
+                                <h2>Fabrics</h2>
+                                <ul>
+                                    {% for cat in categories %}
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                        <a href="{% url 'product_category_view' cat.slug %}" {% if category and category.slug == cat.slug %}style="font-weight: bold; color: #b13453;"{% endif %}>
+                                            {{ cat.name }}
+                                        </a>
+                                        </label>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <div class="shop-filter-item">
+                                <h2>Price</h2>
+                                <ul>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            All prices
+                                            <input type="radio" name="price_range" value="" {% if not selected_price %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            ₹400 – ₹500
+                                            <input type="radio" name="price_range" value="400-500" {% if selected_price == '400-500' %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            ₹500 – ₹600
+                                            <input type="radio" name="price_range" value="500-600" {% if selected_price == '500-600' %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            ₹600 – ₹800
+                                            <input type="radio" name="price_range" value="600-800" {% if selected_price == '600-800' %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            ₹800 – ₹1000
+                                            <input type="radio" name="price_range" value="800-1000" {% if selected_price == '800-1000' %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="topcoat-radio-button__label">
+                                            Above ₹1000
+                                            <input type="radio" name="price_range" value="1000-above" {% if selected_price == '400-above' %}checked{% endif %} onchange="document.getElementById('filter-form').submit();">
+                                            <span class="topcoat-radio-button"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                     
+                        
+                    </div>
+                    <!--filter end--->
+                </div>
+                <div class="col-lg-8" ID="prodlist">
+                    <div class="shop-section-top-inner">
+                       
+                        <div class="shoping-product">
+                            <span>Showing Products {{ products.start_index }} - {{ products.end_index }} Of {{ paginator.count }} Results</span>
+                        </div>
+                        <div class="short-by">
+                            <ul>
+                                <li>Sort By :</li>
+                                <li>
+                                    <select name="sort" onchange="document.getElementById('filter-form').submit();">
+                                        <option value="">Default Sorting</option>
+                                        <option value="newest" {% if sort_by == 'newest' %}selected{% endif %}>Newest Arrivals</option>
+                                        <option value="price_low" {% if sort_by == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+                                        <option value="price_high" {% if sort_by == 'price_high' %}selected{% endif %}>Price: High to Low</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                            <div class="product-wrap">
+                                <div class="row align-items-center">
+                                    {% for product in products %}
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="product-single-item">
+                                            
+                                            <div class="image">
+                                                {% if product.product_image %}
+                                                <a href="{% url 'product_detail' product.slug %}">
+                                                    <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                                </a>
+                                                {% endif %}
+                                                <div class="card-icon">
+                                                    <a class="icon" href="wishlist.html">
+                                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="icon-active" href="wishlist.html">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                                <ul class="cart-wrap">
+                                                    <li>
+                                                       
+                                                        <a href="javascript:void(0);" class="js-add-to-cart"
+                                                            data-url="{% url 'add_to_cart' product.slug %}"
+                                                            data-product-id="{{ product.id }}"
+                                                            data-variant-id="{{ product.variants.first.id|default:'' }}"
+                                                            data-quantity="1"
+                                                            data-bs-toggle="tooltip"
+                                                            title="Add To Cart">
+                                                                <i class="fi flaticon-shopping-cart"></i>
+                                                            </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                    </li>
+                                                    <li data-bs-toggle="modal" data-bs-target="#popup-quickview">
+                                                        <button data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"><i class="fi ti-eye"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-html="true" title="Compare"><i class="fa fa-compress" aria-hidden="true"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="shop-btn">
+                                                    <a class="product-btn" href="{% url 'product_detail' product.slug %}">Buy Now</a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="text">
+                                                <h2><a href="{% url 'product_detail' product.slug %}">{{ product.name|truncatechars:30 }}</a></h2>
+                                                <div class="price">
+                                                    {% if product.mrp_price %}
+                                                    <del class="old-price">₹{{ product.mrp_price }}</del>
+                                                    {% endif %}
+                                                    <span class="present-price">₹{{ product.dist_price }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% empty %}
+                                    <div class="col-12 text-center py-5">
+                                        <h3>No products found matching your criteria.</h3>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination Links -->
+                    <!-- Pagination Section -->
+                    {% if is_paginated %}
+                    <div class="pagination-wrapper pagination-wrapper-center">
+                        <ul class="pagination">
+                            {% if products.has_previous %}
+                            <li>
+                                <a href="?page={{ products.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_price %}&price_range={{ selected_price }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            <li class="active"><a href="#">{{ products.number }}</a></li>
+
+                            {% if products.has_next %}
+                            <li>
+                                <a href="?page={{ products.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_price %}&price_range={{ selected_price }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".js-add-to-cart").forEach(function (button) {
+        button.addEventListener("click", async function (event) {
+            event.preventDefault();
+
+            const url = this.dataset.url;
+            const productId = this.dataset.productId;
+            const variantId = this.dataset.variantId;
+            const quantity = this.dataset.quantity || "1";
+
+            function getCookie(name) {
+                const cookies = document.cookie
+                    ? document.cookie.split(";")
+                    : [];
+
+                for (let cookie of cookies) {
+                    cookie = cookie.trim();
+
+                    if (cookie.startsWith(name + "=")) {
+                        return decodeURIComponent(
+                            cookie.substring(name.length + 1)
+                        );
+                    }
+                }
+
+                return null;
+            }
+
+            const payload = new URLSearchParams();
+            payload.append("product_id", productId);
+            payload.append("quantity", quantity);
+            payload.append("ptype", "pdlist");
+
+            if (variantId) {
+                payload.append("variant_id", variantId);
+            }
+
+            try {
+                button.style.pointerEvents = "none";
+
+               
+
+                console.log("Add to cart URL:", url);
+                console.log("Payload:", payload.toString());
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": getCookie("csrftoken"),
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+                    body: payload.toString(),
+                    credentials: "same-origin"
+                });
+
+                // Read response as text first to diagnose invalid JSON
+                const responseText = await response.text();
+
+                console.log("HTTP status:", response.status);
+                console.log("Server response:", responseText);
+
+                let data;
+
+                try {
+                    data = JSON.parse(responseText);
+                } catch (error) {
+                    throw new Error(
+                        "Django returned HTML or invalid JSON. Check the console response."
+                    );
+                }
+
+                if (!response.ok || data.success === false) {
+                    // alert(data.message || "Unable to add product to cart.");
+                    // return;
+                    showToast(data.message || "Unable to add product to cart.");
+                    return;
+                }
+
+                // Show success toast
+                showToast(data.message || "Product added to cart successfully!");
+
+                // Redirect after 3 seconds
+                setTimeout(function () {
+                    window.location.href = "{% url 'cart_view' %}";
+                }, 3000);
+
+                // window.location.href = "{% url 'cart_view' %}";
+
+            } catch (error) {
+                console.error("Add to cart error:", error);
+                alert(error.message || "Something went wrong.");
+            } finally {
+                button.style.pointerEvents = "";
+            }
+        });
+    });
+});
+</script>
+
+{% endblock %}

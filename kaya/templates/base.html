@@ -1,0 +1,197 @@
+{% load static %}
+
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="wpOceans">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/kaya/favicon_io/favicon.png' %}">
+    <title>{% block title %}Kaya{% endblock %}</title>
+
+    
+
+    <link href="{% static 'css/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.transitions.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="{% static 'css/odometer-theme-default.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+   <!-- Banner Slider Styles -->
+
+<style>
+    /* Toast Notification Styles */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast-notification.success {
+    background-color: #28a745; /* Green for success */
+}
+
+.toast-notification.error {
+    background-color: #dc3545; /* Red for error */
+}
+/*****product image details**************/
+.product-gallery {
+    align-items: flex-start;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.image-item {
+    display: block;
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.image-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.image-item:not(.active) {
+    opacity: 0.7;
+}
+
+.image-item.active,
+.image-item:focus-visible {
+    border: 2px solid #b13453;
+    opacity: 1;
+    outline: none;
+}
+
+
+
+.product-main-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: crosshair;
+}
+
+#main-product-image {
+    display: block;
+    width: 100%;
+    max-height: 750px;
+    object-fit: contain;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0.15s ease-out;
+}
+
+.product-main-image.zoom-active #main-product-image {
+    transform: scale(2.5);
+    transition: none;
+}
+/*
+
+.product-main-image {
+    width: 100%;
+    text-align: center;
+}
+
+.product-main-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 750px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+    */
+
+@media (max-width: 767px) {
+    .vertical-container {
+        gap: 8px;
+    }
+
+    .image-item {
+        padding: 2px;
+    }
+}
+
+.toast-notification {
+   
+    transition: opacity 0.3s ease, transform 0.3s ease,visibility 0.3s ease;
+    /* background: #71df8a; */
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    position: fixed;
+    top: 20px;   
+    right: 0px;
+    left: auto;
+    width: auto;
+    min-width: 300px;
+    max-width: 450px;
+    z-index: 9999;
+    margin: 0;
+    visibility: hidden;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.alert {
+    position: fixed;
+    top: 110px;
+    right: 0px;
+    left: auto;
+    width: auto;
+    min-width: 300px;
+    max-width: 450px;
+    z-index: 9999;
+    margin: 0;
+}
+</style>
+<body>
+
+    {% include 'includes/header.html' %}
+
+ 
+        {% block content %}
+        {% endblock %}
+   
+
+   
+    
+
+ {% include 'includes/footer.html' %}

@@ -1,0 +1,337 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- start of pengu-product-section -->
+<section class="pengu-product-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="wpo-section-title">
+                    <h2>NEW ARRIAVAL</h2>
+                    <p>Here is our new arraival products that you may like.</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-wrap">
+            <div class="row">
+                {% for product in new_products %}
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="product-single-item">
+                        <!-- <a href="{% url 'product_detail' product.slug %}"> -->
+                            {% if product.product_image %}
+                                <div class="image">
+                                    <a href="{% url 'product_detail' product.slug %}">
+                                    <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                    <div class="card-icon">
+                                        <a class="icon" href="wishlist.html">
+                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="icon-active" href="wishlist.html">
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                   
+                                     <form method="POST" action="{% url 'add_to_cart' product.slug %}">
+                                        {% csrf_token %}
+                                        <div class="shop-btn">                                           
+                                            <button type="submit" class="product-btn">Add to cart</button>
+                                            <input type="hidden" name="quantity" id="quantity" value="1">
+                                            <input type="hidden" name="variant_id" id="selected-variant-id" value="{{ product.variants.first.id|default:'' }}">
+                                        </div>
+                                    </form>
+                                    <!-- <div class="shop-btn">
+                                        <a class="product-btn" href="javascript:void(0);" data-bs-toggle="tooltip" data-quantity="1" data-variant-id="{{ product.variants.first.id|default:'' }}" data-product-id="{{ product.id }}" class="js-add-to-cart" data-url="{% url 'add_to_cart' product.slug %}" title="Add To Cart"><i class="fi flaticon-shopping-cart"></i> Add To Cart</a>
+                                    </div> -->
+                                </div>
+                            {% endif %}
+                        <!-- </a> -->
+                        <div class="text">
+                            <h2><a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a></h2>
+                            <div class="price">
+                                <del class="old-price">₹{{ product.mrp_price }}</del>
+                                <span class="present-price">₹{{ product.dist_price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>No New Products Available.</p>
+                {% endfor %}
+                
+               
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of pengu-product-section -->
+<!-- start of pengu-spacing-exclusive-section -->
+<section class="pengu-spacing-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="lookbook-benner">
+                    {% for exclusive in exclusive_banners %}
+                    <div class="bg-image">
+                        
+                        <img src="{{ exclusive.image.url }}" alt="{{ exclusive.title|default:'Banner' }}">
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- end of pengu-spacing-exclusive-section -->
+
+
+<!-- start of pengu-bestseller-section -->
+{% if popular_products %}
+<section class="pengu-bestseller-section  section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="wpo-section-title">
+                    <h2>BEST SELLER</h2>
+                    <p>Explore our most beloved silks and master craftsmanship</p>
+                </div>
+            </div>
+        </div>
+        <div class="bestseller-wrap ">
+            <div class="row">
+                {% for popular in popular_products %}
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="product-single-item">
+                        <a href="{% url 'product_detail' popular.slug %}">
+                            {% if popular.product_image %}
+                            <div class="image">
+                                    <a href="{% url 'product_detail' popular.slug %}">
+                                    <img src="{{ popular.product_image.url }}" alt="{{ popular.name }}">
+                                    </a>
+                                    <div class="card-icon">
+                                        <a class="icon" href="wishlist.html">
+                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        </a>
+                                       
+                                    </div>
+                                    <!--<ul class="cart-wrap">
+                                        <li class="action-icon">
+                                             <a href="{% url 'add_to_cart' popular.slug %}" data-bs-toggle="tooltip" data-bs-html="true" title="Add To Cart"><i class="fi flaticon-shopping-cart"></i></a> 
+                                             <a href="javascript:void(0);" class="js-add-to-cart"
+                                                data-url="{% url 'add_to_cart' popular.slug %}"
+                                                data-product-id="{{ popular.id }}"
+                                                data-variant-id="{{ popular.variants.first.id|default:'' }}"
+                                                data-quantity="1"
+                                                data-bs-toggle="tooltip"
+                                                title="Add To Cart">
+                                                    <i class="fi flaticon-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li data-bs-toggle="modal" data-bs-target="#popup-quickview">
+                                            <button data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"><i class="fi ti-eye"></i></button>
+                                        </li>
+                                         <li>
+                                            <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-html="true" title="Compare"><i class="fa fa-compress" aria-hidden="true">{% url 'product_detail' popular.slug %}</i></a>
+                                        </li> 
+                                    </ul>-->
+                                    <form method="POST" action="{% url 'add_to_cart' popular.slug %}">
+                                        {% csrf_token %}
+                                        <div class="shop-btn">                                           
+                                            <button type="submit" class="product-btn">Add to cart</button>
+                                            <input type="hidden" name="quantity" id="quantity" value="1">
+                                            <input type="hidden" name="variant_id" id="selected-variant-id" value="{{ popular.variants.first.id|default:'' }}">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="text">
+                                    <h2><a href="{% url 'product_detail' popular.slug %}">{{ popular.name }}</a></h2>
+                                    <div class="price">
+                                        <del class="old-price">₹{{ popular.mrp_price }}</del>
+                                        <span class="present-price">₹{{ popular.dist_price }}</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>No Best Seller available.</p>
+                {% endfor %}
+
+               
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endif %}
+<!-- end of pengu-bestseller-section -->
+
+<!-- start of pengu-spacing-festival-section -->
+{% if festival_banners %}
+<section class="pengu-bestseller-section">
+    <div class="container">
+        <div class="row">
+            {% for festival in festival_banners %}
+            <div class="col-lg-6 col-12">
+                <div class="lookbook-benner">
+                    <div class="bg-image">
+                        <img src="{{ festival.image.url }}" alt="{{ festival.title|default:'Banner' }}">
+                    </div>
+                   
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- end of pengu-spacing-festival-section -->
+
+<!-- start of newsletter-section -->
+{% if newsletters %}
+<section class="wpo-blog-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="wpo-section-title">
+                    <h2>Latest News</h2>
+                    <p>Here is our top newse for your fasion guide.</p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-wrap">
+            <div class="row">
+            {% for newsletter in newsletters %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="blog-item">
+                    <div class="post-image">
+                        <!-- <div class="post-img-title">
+                            <span>Fasion</span>
+                        </div> -->
+                        <img src="{{ newsletter.image.url }}" alt="">
+                    </div>
+                    <div class="post-content">
+                        
+                        <h2><a href="#">{{ newsletter.title }}</a></h2>
+                        <p>{{ newsletter.short_description|truncatechars:100 }}</p>
+                        <a class="post-btn" href="#">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- end of newsletter-section -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".js-add-to-cart").forEach(function (button) {
+        button.addEventListener("click", async function (event) {
+            event.preventDefault();
+
+            const url = this.dataset.url;
+            const productId = this.dataset.productId;
+            const variantId = this.dataset.variantId;
+            const quantity = this.dataset.quantity || "1";
+
+            function getCookie(name) {
+                const cookies = document.cookie
+                    ? document.cookie.split(";")
+                    : [];
+
+                for (let cookie of cookies) {
+                    cookie = cookie.trim();
+
+                    if (cookie.startsWith(name + "=")) {
+                        return decodeURIComponent(
+                            cookie.substring(name.length + 1)
+                        );
+                    }
+                }
+
+                return null;
+            }
+
+            const payload = new URLSearchParams();
+            payload.append("product_id", productId);
+            payload.append("quantity", quantity);
+            payload.append("ptype", "pdlist");
+
+            if (variantId) {
+                payload.append("variant_id", variantId);
+            }
+
+            try {
+                button.style.pointerEvents = "none";
+
+               
+
+                console.log("Add to cart URL:", url);
+                console.log("Payload:", payload.toString());
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": getCookie("csrftoken"),
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+                    body: payload.toString(),
+                    credentials: "same-origin"
+                });
+
+                // Read response as text first to diagnose invalid JSON
+                const responseText = await response.text();
+
+                console.log("HTTP status:", response.status);
+                console.log("Server response:", responseText);
+
+                let data;
+
+                try {
+                    data = JSON.parse(responseText);
+                } catch (error) {
+                    throw new Error(
+                        "Django returned HTML or invalid JSON. Check the console response."
+                    );
+                }
+
+                if (!response.ok || data.success === false) {
+                    // alert(data.message || "Unable to add product to cart.");
+                    // return;
+                    showToast(data.message || "Unable to add product to cart.");
+                    return;
+                }
+
+                // Show success toast
+                showToast(data.message || "Product added to cart successfully!");
+
+                // Redirect after 3 seconds
+                setTimeout(function () {
+                    window.location.href = "{% url 'cart_view' %}";
+                }, 3000);
+
+                // window.location.href = "{% url 'cart_view' %}";
+
+            } catch (error) {
+                console.error("Add to cart error:", error);
+                alert(error.message || "Something went wrong.");
+            } finally {
+                button.style.pointerEvents = "";
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

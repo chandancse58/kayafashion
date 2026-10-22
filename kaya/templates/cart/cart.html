@@ -1,0 +1,539 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- start wpo-page-title -->
+<section class="wpo-page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="wpo-breadcumb-wrap">
+                    <h2>Cart</h2>
+                    <ol class="wpo-breadcumb-wrap">
+                        <li><a href="/">Home</a></li>
+                        <li>Cart</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
+<!-- end page-title -->
+
+<!-- cart-area start -->
+<div class="cart-area section-padding">
+    <div class="container">
+        <div class="form">
+            <div class="cart-wrapper">
+                <div class="row">
+                    {% if cart_items %}
+                    <div class="col-12">
+                        
+                        
+                        <table class="table-responsive cart-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="images images-b">Image</th>
+                                    <th class="product-2">Product Name / SKU</th>
+                                    
+                                    <th class="pr">Quantity</th>
+                                    <th class="ptice">Price</th>
+                                    <th class="stock">Total Price</th>
+                                    <th class="remove remove-b">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart_items %}
+                                <tr>
+                                    <td class="images">
+                                        {% if item.product.product_image %}
+                                        <img src="{{ item.product.product_image.url }}" alt="{{ item.product_name }}"  width="80px" height="80px" style="object-fit: contain;">
+                                        {% else %}
+                                            <span>No image</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="product">
+                                        <ul>
+                                            <li class="first-cart">{{ item.product_name }}  {{ item.product.category.slug }}</li>                                                
+                                            <li>SKU : {{ item.product_sku }}</li>
+                                            {% if item.variant %}                                                    
+                                            <li>   Color: {{ item.variant.color }}</li>                                                                                                 
+                                            {% endif %}
+                                            
+                                        </ul>
+                                    </td>
+                                    <td class="stock">
+                                        <ul class="input-style">
+                                            <!-- <li class="quantity cart-plus-minus">
+                                                <input type="text" name="quantity" id="quantity" value="{{ item.quantity }}">
+                                            </li> -->
+                                            <li class="quantity cart-plus-minus">
+                                                <input type="text" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1" required style="width: 75px;">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td class="ptice">₹{{ item.unit_price|floatformat:2 }}</td>
+                                    <td class="stock">₹{{ item.total_price|floatformat:2 }}</td>
+                                    <td class="action">
+                                        <ul>
+                                            <li class="w-btn">
+                                                <a data-bs-toggle="tooltip" class="remove-cart-item" data-bs-html="true" title="Remove from Cart" data-item-id="{{ item.id }}" data-url="{% url 'remove_cart_item' item.id %}" href="javascript:void(0);">
+                                                <i class="fi ti-trash"></i>
+                                                </a>
+                                                
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+
+                                
+                            </tbody>
+                        </table>
+                        
+
+                        <form method="POST" action="{% url 'update_cart' %}">
+                            {% csrf_token %}
+                            <div class="submit-btn-area">
+                                <ul>
+                                    <li><a class="theme-btn" href="/">Continue Shopping <i class="fa fa-angle-double-right"></i></a></li>
+                                    <li><button class="theme-btn" type="submit">Update Cart</button></li>
+                                </ul>
+                            </div>
+                        </form>
+                       
+                        <div class="cart-product-list">
+                            <ul>
+                                <li>Total product<span id="total-quantity">( {{ total_quantity }} )</span></li>
+                                <li>Sub Price<span id="cart-subtotal">₹{{ total_amount|floatformat:2 }}</span></li>
+                                <li>Vat<span>$50</span></li>                                
+                                <li>Delivery Charge<span>₹00.00</span></li>
+                                <li class="cart-b">Total Price<span id="cart-total">₹{{ total_amount|floatformat:2 }}</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="submit-btn-area">
+                            <button type="button" id="magic-checkout-btn" class="theme-btn">
+                                Proceed to Checkout
+                                <i class="fa fa-angle-double-right"></i>
+                            </button>
+
+                            <p id="checkout-message" role="status"></p>
+
+                             <!-- <ul>
+                                <li><a class="theme-btn" href="{% url 'create_razorpay_order' %}">Proceed to Checkout <i class="fa fa-angle-double-right"></i></a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-12">
+                        <div style="text-align:center;margin-bottom: 25px;">
+                            <p style="font-weight: 500;font-size: 20px;">Your cart is empty.</p>
+                            <a href="/" class="btn btn-primary" style="color: #fff;background-color: #b13453;border-color: #b13453;">
+                                Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="payment-message" role="status"></p>
+</div>
+
+<!-- cart-area end -->
+
+ <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+
+ <script>
+const checkoutButton = document.getElementById("magic-checkout-btn");
+const message = document.getElementById("checkout-message");
+
+checkoutButton.addEventListener("click", async function () {
+    checkoutButton.disabled = true;
+    message.textContent = "Preparing secure checkout...";
+
+    try {
+        const csrfToken = document.querySelector(
+            "[name=csrfmiddlewaretoken]"
+        ).value;
+
+        const response = await fetch(
+            "{% url 'create_razorpay_order' %}",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken
+                },
+                credentials: "same-origin",
+                body: JSON.stringify({})
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Unable to start checkout.");
+        }
+
+        const options = {
+            key: data.key,
+            one_click_checkout: true,
+            name: data.name,
+            order_id: data.order_id,
+            show_coupons: true,
+
+            handler: function (result) {
+                // Submit the Razorpay response to your server.
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "{% url 'razorpay_payment_return' %}";
+
+                const fields = {
+                    csrfmiddlewaretoken: csrfToken,
+                    razorpay_payment_id: result.razorpay_payment_id,
+                    razorpay_order_id: result.razorpay_order_id,
+                    razorpay_signature: result.razorpay_signature
+                };
+
+                Object.entries(fields).forEach(([name, value]) => {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = name;
+                    input.value = value;
+                    form.appendChild(input);
+                });
+
+                document.body.appendChild(form);
+                form.submit();
+            },
+
+            modal: {
+                ondismiss: function () {
+                    checkoutButton.disabled = false;
+                    message.textContent =
+                        "Checkout closed. Your cart is still available.";
+                }
+            }
+        };
+
+        const checkout = new Razorpay(options);
+
+        checkout.on("payment.failed", function () {
+            checkoutButton.disabled = false;
+            message.textContent =
+                "Payment failed. Please retry checkout.";
+        });
+
+        checkout.open();
+        message.textContent = "";
+
+    } catch (error) {
+        checkoutButton.disabled = false;
+        message.textContent = error.message;
+    }
+});
+</script>
+
+ <!-- <script>
+document.getElementById("pay-button").addEventListener("click", async function () {
+    const button = this;
+    button.disabled = true;
+
+    try {
+        const response = await fetch("{% url 'create_razorpay_order' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({})
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.order_id) {
+            throw new Error(data.error || "Unable to create payment order.");
+        }
+
+        const options = {
+            key: data.key,
+            amount: data.amount,
+            currency: data.currency,
+            name: "Kaya Fashion",
+            description: "Order Payment",
+            order_id: data.order_id,
+
+            handler: function (paymentResponse) {
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "{% url 'razorpay_payment_return' %}";
+
+                const csrf = document.createElement("input");
+                csrf.type = "hidden";
+                csrf.name = "csrfmiddlewaretoken";
+                csrf.value = "{{ csrf_token }}";
+                form.appendChild(csrf);
+
+                for (const [name, value] of Object.entries(paymentResponse)) {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = name;
+                    input.value = value;
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            },
+
+            theme: {
+                color: "#3399cc"
+            },
+
+            modal: {
+                ondismiss: function () {
+                    button.disabled = false;
+                }
+            }
+        };
+
+        const razorpay = new Razorpay(options);
+
+        razorpay.on("payment.failed", function (failure) {
+            alert(failure.error.description || "Payment failed. Please try again.");
+            button.disabled = false;
+        });
+
+        razorpay.open();
+
+    } catch (error) {
+        alert(error.message);
+        button.disabled = false;
+    }
+});
+</script> -->
+
+ <script>
+    // const csrfToken = document.querySelector(
+    //     '[name="csrfmiddlewaretoken"]'
+    // ).value;
+
+    // const payButton = document.getElementById("pay-button");
+    // const message = document.getElementById("payment-message");
+
+  
+
+    // payButton.addEventListener("click", async function () {
+    //     payButton.disabled = true;
+    //     message.textContent = "Preparing secure checkout...";
+
+       
+
+    //     try {
+    //         // Step 1: Ask Django to create the Razorpay order.
+    //         const response = await fetch(
+    //             "{% url 'create_razorpay_order' %}",
+    //             {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "X-CSRFToken": csrfToken,
+    //                     "Content-Type": "application/json"
+    //                 },
+    //                 body: JSON.stringify({})
+    //             }
+    //         );
+
+    //         const data = await response.json();
+
+    //         if (!response.ok) {
+    //             throw new Error(
+    //                 data.error || "Could not start checkout."
+    //             );
+    //         }
+
+    //         // Step 2: Open Razorpay Standard Checkout.
+    //         const options = {
+    //             key: data.key,
+    //             amount: data.amount,
+    //             currency: data.currency,
+    //             name: data.name,
+    //             description: data.description,
+    //             order_id: data.order_id,
+
+    //             handler: async function (result) {
+    //                 message.textContent =
+    //                     "Verifying your payment...";
+
+    //                 try {
+    //                     const verifyResponse = await fetch(
+    //                         "{% url 'razorpay_payment_return' %}",
+    //                         {
+    //                             method: "POST",
+    //                             headers: {
+    //                                 "Content-Type":
+    //                                     "application/json",
+    //                                 "X-CSRFToken": csrfToken
+    //                             },
+    //                             body: JSON.stringify({
+    //                                 razorpay_order_id:
+    //                                     result.razorpay_order_id,
+    //                                 razorpay_payment_id:
+    //                                     result.razorpay_payment_id,
+    //                                 razorpay_signature:
+    //                                     result.razorpay_signature
+    //                             })
+    //                         }
+    //                     );
+
+    //                     const verification =
+    //                         await verifyResponse.json();
+
+    //                     if (
+    //                         verifyResponse.ok &&
+    //                         verification.status === "success"
+    //                     ) {
+    //                         message.textContent =
+    //                             "Payment successful!";
+
+    //                         window.location.href =
+    //                             "{% url 'payment_success' %}";
+    //                     } else {
+    //                         message.textContent =
+    //                             verification.message ||
+    //                             verification.error ||
+    //                             "Payment verification is pending. " +
+    //                             "Please check your order status.";
+    //                     }
+    //                 } catch (error) {
+    //                     message.textContent =
+    //                         "Unable to confirm payment. " +
+    //                         "Please check your order status.";
+    //                 } finally {
+    //                     payButton.disabled = false;
+    //                 }
+    //             },
+
+    //             modal: {
+    //                 ondismiss: function () {
+    //                     message.textContent =
+    //                         "Checkout closed. Your payment status " +
+    //                         "may still need to be checked.";
+    //                     payButton.disabled = false;
+    //                 }
+    //             },
+
+    //             theme: {
+    //                 color: "#7B1E3A"
+    //             }
+    //         };
+
+    //         const checkout = new Razorpay(options);
+
+    //         checkout.on("payment.failed", function () {
+    //             message.textContent =
+    //                 "Payment failed. Please try again.";
+    //             payButton.disabled = false;
+    //         });
+
+    //         checkout.open();
+
+    //     } catch (error) {
+    //         message.textContent =
+    //             error.message || "Something went wrong.";
+    //         payButton.disabled = false;
+    //     }
+    // });
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".remove-cart-item").forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (!confirm("Are you sure you want to remove this product?")) {
+                return;
+            }
+
+            const url = this.dataset.url;
+            const row = this.closest("tr");
+
+            
+
+            // Get Django CSRF token from cookie
+            function getCookie(name) {
+                let cookieValue = null;
+
+                if (document.cookie && document.cookie !== "") {
+                    const cookies = document.cookie.split(";");
+
+                    for (let cookie of cookies) {
+                        cookie = cookie.trim();
+
+                        if (cookie.startsWith(name + "=")) {
+                            cookieValue = decodeURIComponent(
+                                cookie.substring(name.length + 1)
+                            );
+                            break;
+                        }
+                    }
+                }
+
+                return cookieValue;
+            }
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken"),
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                credentials: "same-origin"
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Could not remove the item.");
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Refresh the page after successful deletion
+                    // row.remove();
+                    //window.location.reload();
+                    // Show success toast
+                    showToast(data.message || "Product removes from cart successfully!");
+
+                    // Redirect after 3 seconds
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 3000);
+                } else {
+                   // alert(data.message || "Unable to remove this item.");
+
+                   showToast(data.message || "Unable to remove this item.");
+
+                    // Redirect after 3 seconds
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 3000);
+                }
+            })
+            
+            .catch(error => {
+                console.error(error);
+                alert("Something went wrong while removing the product.");
+            });
+        });
+    });
+});
+</script>
+
+{% endblock %}

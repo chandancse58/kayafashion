@@ -1,0 +1,15 @@
+<!-- Main Thumbnail -->
+<img src="{{ product.product_image.url }}" alt="{{ product.name }}" class="main-img">
+
+<!-- Product Gallery Grid -->
+<div class="product-gallery d-flex gap-2 mt-3">
+    {% for gallery_item in product.images.all %}
+        <div class="gallery-thumb">
+            <img src="{{ gallery_item.image.url }}" 
+                 alt="{{ gallery_item.alt_text|default:product.name }}" 
+                 style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border: 1px solid #ccc;">
+        </div>
+    {% empty %}
+        <p class="text-muted">No additional gallery images available.</p>
+    {% endfor %}
+</div>

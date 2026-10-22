@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container section-padding" style="text-align: center;">
+    <h2>Complete Your Purchase</h2>
+    <p>Total Amount to Pay: <strong>₹{{ total_price }}</strong></p>
+
+    <!-- Trigger Button that opens the Razorpay Modal -->
+    <button id="rzp-checkout-btn" class="theme-btn">Proceed to Secure Checkout</button>
+</div>
+
+<!-- Load Razorpay Checkout Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "{{ razorpay_key_id }}", // From your Django settings
+        "amount": "{{ amount }}", // Amount in paise
+        "currency": "INR",
+        "name": "Laxmipati / Kaya Fashion",
+        "description": "Ethnic Wear Purchase",
+        "order_id": "{{ order_id }}", // Generated from Django backend view
+        "handler": function (response){
+            // Once the user completes the flow, Razorpay returns payment tokens.
+            // Redirect to your backend verification route:
+            window.location.href = "{% url 'payment_verify' %}?payment_id=" + response.razorpay_payment_id + 
+                                   "&order_id=" + response.razorpay_order_id + 
+                                   "&signature=" + response.razorpay_signature;
+        },
+        "prefill": {
+            // Optional: Pre-populate if you already have user details
+            "name": "{{ request.user.first_name }}",
+            "email": "{{ request.user.email }}",
+            "contact": "{{ request.user.mobile|default:'' }}"
+        },
+        "theme": {
+            "color": "#b13453" // Brand primary color
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    // Automatically open or trigger via button click
+    document.getElementById('rzp-checkout-btn').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+
+    // Optional: If you want it to open automatically the second the page loads:
+    // window.onload = function(){ rzp1.open(); }
+</script>
+{% endblock %}

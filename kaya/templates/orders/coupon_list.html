@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Coupons & Offers Management</h2>
+        <a href="{% url 'coupon_create' %}" class="btn btn-primary">Create New Coupon</a>
+    </div>
+
+    <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Code</th>
+                <th>Discount</th>
+                <th>Min Spend</th>
+                <th>Used / Limit</th>
+                <th>Validity</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coupon in coupons %}
+            <tr>
+                <td><span class="badge bg-secondary fs-6">{{ coupon.code }}</span></td>
+                <td>
+                    {% if coupon.discount_type == 'PERCENTAGE' %}
+                        {{ coupon.discount_value }}%
+                    {% else %}
+                        ₹{{ coupon.discount_value }}
+                    {% endif %}
+                </td>
+                <td>₹{{ coupon.min_order_amount }}</td>
+                <td>{{ coupon.used_count }} / {% if coupon.usage_limit %}{{ coupon.usage_limit }}{% else %}∞{% endif %}</td>
+                <td><small>{{ coupon.start_date|date:"Y-m-d" }} to {{ coupon.end_date|date:"Y-m-d" }}</small></td>
+                <td>
+                    {% if coupon.is_active %}
+                        <span class="badge bg-success">Active</span>
+                    {% else %}
+                        <span class="badge bg-danger">Inactive</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'coupon_update' coupon.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'coupon_delete' coupon.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="7" class="text-center text-muted">No coupons created yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

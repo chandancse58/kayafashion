@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4" style="max-width: 800px;">
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">{{ title }}</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <h5>General Settings</h5>
+                {{ form.as_p }}
+
+                {% if setting %}
+                <hr class="my-4">
+                <h5>Upload Multiple Banners</h5>
+                <div class="mb-3">
+                    <label class="form-label">Select Banner Images</label>
+                    {{ banner_upload_form.banners }}
+                    <small class="form-text text-muted">{{ banner_upload_form.banners.help_text }}</small>
+                </div>
+                {% endif %}
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'setting_list' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if setting and banners %}
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">Current Banners</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for banner in banners %}
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <img src="{{ banner.image.url }}" class="card-img-top" style="height: 120px; object-fit: cover;">
+                        <div class="card-body p-2">
+                            <small class="d-block text-truncate"><strong>{{ banner.title|default:"No Title" }}</strong></small>
+                            <small class="text-muted">Order: {{ banner.order }}</small>
+                        </div>
+                        <div class="card-footer p-2 text-end">
+                            <a href="{% url 'banner_delete' banner.pk %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this banner?')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
