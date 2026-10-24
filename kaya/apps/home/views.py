@@ -558,6 +558,8 @@ def add_to_cart(request, slug):
 
         order.save()
 
+    request.session["current_order_id"] = order.id
+
     if ptype == "pdlist":
         return JsonResponse({
             "success": True,
@@ -706,6 +708,8 @@ def add_to_cart(request, slug):
 
 
 def cart_view(request):
+    
+    # request.session.flush()
     cart_items = []
     subtotal = Decimal("0.00")
     tax_amount = Decimal("0.00")
