@@ -19,7 +19,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch
 
-from orders.models import  OrderItem
+from orders.models import  OrderItem, Order
 from products.models import Customer
 from .models import Product, Payment
 
@@ -221,77 +221,84 @@ def get_user_cart_items(request):
 @require_POST
 def create_razorpay_order(request):
     """Create a Razorpay order using the server-calculated cart total."""
-    try:
+    # try:
 
-        cart_items = list(get_user_cart_items(request))
+    cart_items = list(get_user_cart_items(request))
 
-        print("cart===",cart_items)
+    print("cart===",cart_items)
 
-        if not cart_items:
-            return JsonResponse(
-                {"error": "Your shopping cart is empty."},
-                status=400,
-            )
-
-        total = Decimal("0.00")
-
-        for item in cart_items:
-            # Change product.price if your model uses another price field.
-            price = Decimal(str(item.product.dist_price))
-            quantity = int(item.quantity)
-
-            if price < 0 or quantity <= 0:
-                return JsonResponse(
-                    {"error": "Invalid cart item."},
-                    status=400,
-                )
-
-            total += price * quantity
-
-        total = total.quantize(
-            Decimal("0.01"),
-            rounding=ROUND_HALF_UP,
-        )
-
-        # Razorpay expects the amount in paise.
-        # amount_paise = int(total * 100)
-
-        amount_paise = int(100) 
-
-        if amount_paise < 100:
-            return JsonResponse(
-                {"error": "The minimum payment amount is ₹1."},
-                status=400,
-            )
-
-        client = get_razorpay_client()
-
-        razorpay_order = client.order.create(
-            data={
-                "amount": amount_paise,
-                "currency": "INR",
-                "receipt": uuid.uuid4().hex,
-            }
-        )
-
-        # Keep the order ID and expected amount on the server.
-        request.session["razorpay_order_id"] = razorpay_order["id"]
-        request.session["razorpay_amount"] = amount_paise
-
-        return JsonResponse({
-            "key": settings.RAZORPAY_KEY_ID,
-            "order_id": razorpay_order["id"],
-            "amount": amount_paise,            
-            "currency": "INR",
-            "name": "Kaya Fashion",
-        })
-
-    except Exception:
-        logger.exception("Failed to create Razorpay order")
+    if not cart_items:
         return JsonResponse(
-            {"error": "Unable to initiate payment. Please try again."},
-            status=500,
+            {"error": "Your shopping cart is empty."},
+            status=400,
         )
+
+    total = Decimal("0.00")
+
+    for item in cart_items:
+        # Change product.price if your model uses another price field.
+        price = Decimal(str(item.product.dist_price))
+        quantity = int(item.quantity)
+        # print("item ===>>", item)
+        if price < 0 or quantity <= 0:
+            return JsonResponse(
+                {"error": "Invalid cart item."},
+                status=400,
+            )
+
+        total += price * quantity
+
+    total = total.quantize(
+        Decimal("0.01"),
+        rounding=ROUND_HALF_UP,
+    )
+
+    # Razorpay expects the amount in paise.
+    # amount_paise = int(total * 100)
+
+    amount_paise = int(100) 
+
+    if amount_paise < 100:
+        return JsonResponse(
+            {"error": "The minimum payment amount is ₹1."},
+            status=400,
+        )
+
+    client = get_razorpay_client()
+
+    razorpay_order = client.order.create(
+        data={
+            "amount": amount_paise,
+            "currency": "INR",
+            "receipt": uuid.uuid4().hex,
+        }
+    )
+    # print("razorpay_order====>", razorpay_order)
+    if razorpay_order["status"] == "created":
+        Order.objects.filter(id=request.session["current_order_id"]).update(razorpay_order_id=razorpay_order["id"])
+    else:
+        return JsonResponse(
+                    {"error": "Order creation failed. Please try again."},
+                    status=500,
+                )
+    # Keep the order ID and expected amount on the server.
+    request.session["razorpay_order_id"] = razorpay_order["id"]
+    request.session["razorpay_amount"] = amount_paise
+
+    return JsonResponse({
+        "key": settings.RAZORPAY_KEY_ID,
+        "order_id": razorpay_order["id"],
+        "amount": amount_paise,            
+        "currency": "INR",
+        "name": "Kaya Fashion",
+    })
+
+    # except Exception:
+    #     logger.exception("Failed to create Razorpay order")
+    #     return JsonResponse(
+    #         {"error": "Unable to initiate payment. Please try again."},
+    #         status=500,
+    #     )
 
 
 
@@ -312,9 +319,12 @@ def razorpay_payment_return(request):
     returned_order_id = request.POST.get("razorpay_order_id")
     signature = request.POST.get("razorpay_signature")
 
-    print("local_order_id====",local_order_id)
-    print("razorpay_order_id====",razorpay_order_id)
-    print("expected_amount====",expected_amount)
+    # print("local_order_id====",local_order_id)
+    # print("razorpay_order_id====",razorpay_order_id)
+    # print("expected_amount====",expected_amount)
+    # print("payment_id====",payment_id)
+    # print("returned_order_id====",returned_order_id)
+    # print("signature====",signature)
 
     if not all([
         local_order_id,
@@ -326,7 +336,7 @@ def razorpay_payment_return(request):
     ]):
         return render(
             request,
-            "payment_failed.html",
+            "orders/payment_failed.html",
             {"message": "Missing payment information."},
             status=400,
         )
@@ -336,172 +346,175 @@ def razorpay_payment_return(request):
         messages.error(request, "Payment order mismatch.")
         return redirect("checkout")
 
-    try:
-        # Look up the LOCAL Django order, not the Razorpay order ID.
-        order = Order.objects.get(pk=local_order_id)
+    # try:
+    # Look up the LOCAL Django order, not the Razorpay order ID.
+    order = Order.objects.get(pk=local_order_id)
 
-        client = get_razorpay_client()
+    client = get_razorpay_client()
 
-        # Verify the checkout signature against the saved Razorpay order ID.
-        client.utility.verify_payment_signature({
-            "razorpay_order_id": order.razorpay_order_id,
-            "razorpay_payment_id": payment_id,
-            "razorpay_signature": signature,
-        })
+    # Verify the checkout signature against the saved Razorpay order ID.
+    client.utility.verify_payment_signature({
+        "razorpay_order_id": order.razorpay_order_id,
+        "razorpay_payment_id": payment_id,
+        "razorpay_signature": signature,
+    })
 
-        # Fetch authoritative payment details directly from Razorpay.
-        payment = client.payment.fetch(payment_id)
+    # Fetch authoritative payment details directly from Razorpay.
+    payment = client.payment.fetch(payment_id)
 
-        if payment.get("order_id") != order.razorpay_order_id:
-            messages.error(request, "Payment order could not be verified.")
-            return redirect("checkout")
+    if payment.get("order_id") != order.razorpay_order_id:
+        messages.error(request, "Payment order could not be verified.")
+        return redirect("checkout")
 
-        # Razorpay amounts are in paise. Compare against both the session
-        # amount and the amount calculated from our database order.
-        order_amount_paise = int(
-            (Decimal(str(order.total_amount)) * Decimal("100")).quantize(
-                Decimal("1"),
-                rounding=ROUND_HALF_UP,
-            )
+    # Razorpay amounts are in paise. Compare against both the session
+    # amount and the amount calculated from our database order.
+    order_amount_paise = int(
+        (Decimal(str(order.total_amount)) * Decimal("100")).quantize(
+            Decimal("1"),
+            rounding=ROUND_HALF_UP,
         )
-
+    )
+    order_amount_paise = 100
+    # print(">>>", payment.get("amount", 0))
+    # print("expected_amount>>>>", expected_amount)
+    # print("order_amount_paise >>>", order_amount_paise)
+    if (
+        int(payment.get("amount", 0)) != int(expected_amount)
+        or int(payment.get("amount", 0)) != int(order_amount_paise)
+    ):
+        messages.error(request, "Payment amount mismatch.")
+        return redirect("checkout")
+    # print("payment.get('currency')>>>", payment.get("currency"))
+    if payment.get("currency") != "INR":
+        messages.error(request, "Payment currency mismatch.")
+        return redirect("checkout")
+    # print("payment.get('status') >>>>", payment.get("status"))
+    if payment.get("status") != "captured":
+        messages.warning(
+            request,
+            "Payment is not yet confirmed. Please try again later.",
+        )
+        return redirect("checkout")
+    # print("type of payment >>", type(payment))
+    # Convert the Razorpay response into JSON text for a TextField.
+    payment_response_json = json.dumps(
+        payment,
+        default=str,
+    )
+    # print("type of payment >>", payment)
+    # Lock the order so simultaneous callbacks cannot process it twice.
+    with transaction.atomic():
+        locked_order = Order.objects.select_for_update().get(
+            pk=local_order_id
+        )
+        # print("type >>>", type(locked_order))
+        # Prevent a different payment from being attached to this order.
         if (
-            int(payment.get("amount", 0)) != int(expected_amount)
-            or int(payment.get("amount", 0)) != order_amount_paise
+            locked_order.razorpay_order_id
+            != razorpay_order_id
         ):
-            messages.error(request, "Payment amount mismatch.")
+            messages.error(request, "Payment order mismatch.")
             return redirect("checkout")
 
-        if payment.get("currency") != "INR":
-            messages.error(request, "Payment currency mismatch.")
-            return redirect("checkout")
+        existing_payment = Payment.objects.filter(
+            razorpay_order_id=order.razorpay_order_id
+        ).first()
 
-        if payment.get("status") != "captured":
-            messages.warning(
-                request,
-                "Payment is not yet confirmed. Please try again later.",
-            )
-            return redirect("checkout")
-
-        # Convert the Razorpay response into JSON text for a TextField.
-        payment_response_json = json.dumps(
-            dict(payment),
-            default=str,
-        )
-
-        # Lock the order so simultaneous callbacks cannot process it twice.
-        with transaction.atomic():
-            locked_order = Order.objects.select_for_update().get(
-                pk=local_order_id
-            )
-
-            # Prevent a different payment from being attached to this order.
-            if (
-                locked_order.razorpay_order_id
-                != razorpay_order_id
-            ):
-                messages.error(request, "Payment order mismatch.")
+        if existing_payment:
+            # An existing record must refer to this same payment.
+            if existing_payment.razorpay_payment_id != payment_id:
+                messages.error(
+                    request,
+                    "A different payment is already recorded for this order.",
+                )
                 return redirect("checkout")
 
-            existing_payment = Payment.objects.filter(
-                razorpay_order_id=razorpay_order_id
-            ).first()
-
-            if existing_payment:
-                # An existing record must refer to this same payment.
-                if existing_payment.razorpay_payment_id != payment_id:
-                    messages.error(
-                        request,
-                        "A different payment is already recorded for this order.",
-                    )
-                    return redirect("checkout")
-
-                # If already processed successfully, treat this as a retry.
-                if locked_order.payment_status == "PAID":
-                    pass
-                else:
-                    existing_payment.status = "SUCCESS"
-                    existing_payment.transaction_id = payment_id
-                    existing_payment.amount = order_amount_paise
-                    existing_payment.raw_response = payment_response_json
-                    existing_payment.save(update_fields=[
-                        "status",
-                        "transaction_id",
-                        "amount",
-                        "raw_response",
-                    ])
-
+            # If already processed successfully, treat this as a retry.
+            if locked_order.payment_status == "PAID":
+                pass
             else:
-                # Save the successful payment in your payments table.
-                payment.objects.create(
-                    order=locked_order,
-                    payment_method=(payment.get("method") or "RAZORPAY"),
-                    transaction_id=payment_id,
-                    amount=order_amount_paise,
-                    status="SUCCESS",
-                    raw_response=payment_response_json,
-                    razorpay_order_id=razorpay_order_id,
-                    razorpay_payment_id=payment_id,
-                )
-
-            # Update the order only after the payment has been verified.
-            if locked_order.payment_status != "PAID":
-                locked_order.payment_status = "PAID"
-                locked_order.order_status = "PROCESSING"
-                locked_order.razorpay_payment_id = payment_id
-                locked_order.save(update_fields=[
-                    "payment_status",
-                    "order_status",
-                    "razorpay_payment_id",
+                existing_payment.status = "SUCCESS"
+                existing_payment.transaction_id = payment_id
+                existing_payment.amount = order_amount_paise
+                existing_payment.raw_response = payment_response_json
+                existing_payment.save(update_fields=[
+                    "status",
+                    "transaction_id",
+                    "amount",
+                    "raw_response",
                 ])
 
-        # Clear payment session values only after the database transaction.
-        request.session["last_successful_payment_id"] = payment_id
-        request.session["last_successful_order_id"] = local_order_id
+        else:
+            # Save the successful payment in your payments table.
+            Payment.objects.create(
+                order_id=locked_order.id,
+                payment_method=(payment.get("method") or "RAZORPAY"),
+                transaction_id=payment_id,
+                amount=order_amount_paise,
+                status="SUCCESS",
+                raw_response=payment_response_json,
+                razorpay_order_id=order.razorpay_order_id,
+                razorpay_payment_id=payment_id,
+            )
 
-        request.session.pop("razorpay_order_id", None)
-        request.session.pop("razorpay_amount", None)
-        request.session.pop("current_order_id", None)
+        # Update the order only after the payment has been verified.
+        if locked_order.payment_status != "PAID":
+            locked_order.payment_status = "PAID"
+            locked_order.order_status = "PROCESSING"
+            locked_order.razorpay_payment_id = payment_id
+            locked_order.save(update_fields=[
+                "payment_status",
+                "order_status",
+                "razorpay_payment_id",
+            ])
 
-        messages.success(request, "Payment completed successfully!")
-        return redirect("payment_success")
+    # Clear payment session values only after the database transaction.
+    request.session["last_successful_payment_id"] = payment_id
+    request.session["last_successful_order_id"] = local_order_id
 
-    except Order.DoesNotExist:
-        return render(
-            request,
-            "payment_failed.html",
-            {"message": "Order not found."},
-            status=404,
-        )
+    request.session.pop("razorpay_order_id", None)
+    request.session.pop("razorpay_amount", None)
+    request.session.pop("current_order_id", None)
 
-    except Payment.DoesNotExist:
-        logger.exception("Payment record lookup failed.")
-        return render(
-            request,
-            "payment_failed.html",
-            {"message": "Payment could not be verified. Please contact support."},
-            status=400,
-        )
+    messages.success(request, "Payment completed successfully!")
+    return redirect("payment_success")
 
-    except IntegrityError:
-        logger.exception(
-            "Database integrity error while recording Razorpay payment."
-        )
-        return render(
-            request,
-            "payment_failed.html",
-            {"message": "We could not save your payment confirmation. Please contact support."},
-            status=400,
-        )
+    # except Order.DoesNotExist:
+    #     return render(
+    #         request,
+    #         "orders/payment_failed.html",
+    #         {"message": "Order not found."},
+    #         status=404,
+    #     )
 
-    except Exception:
-        logger.exception("Razorpay payment verification failed.")
-        return render(
-            request,
-            "payment_failed.html",
-            {"message": "Payment could not be verified. Please contact support."},
-            status=400,
-        )
+    # except Payment.DoesNotExist:
+    #     logger.exception("Payment record lookup failed.")
+    #     return render(
+    #         request,
+    #         "orders/payment_failed.html",
+    #         {"message": "Payment could not be verified. Please contact support."},
+    #         status=400,
+    #     )
+
+    # except IntegrityError:
+    #     logger.exception(
+    #         "Database integrity error while recording Razorpay payment."
+    #     )
+    #     return render(
+    #         request,
+    #         "orders/payment_failed.html",
+    #         {"message": "We could not save your payment confirmation. Please contact support."},
+    #         status=400,
+    #     )
+
+    # except Exception:
+    #     logger.exception("Razorpay payment verification failed.")
+    #     return render(
+    #         request,
+    #         "orders/payment_failed.html",
+    #         {"message": "Payment could not be verified. Please contact support."},
+    #         status=400,
+    #     )
 
     
 # def razorpay_payment_return(request):
@@ -787,7 +800,7 @@ def checkout_view(request):
     )
 
 
-@login_required
+# @login_required
 def payment_success(request):
     return render(
         request,

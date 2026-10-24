@@ -38128,3 +38128,857 @@ WARNING 2026-10-19 23:32:03,702 log Not Found: /favicon.ico
 WARNING 2026-10-19 23:32:03,703 basehttp "GET /favicon.ico HTTP/1.1" 404 4239
 WARNING 2026-10-19 23:32:03,752 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2026-10-19 23:32:03,752 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4350
+INFO 2026-10-23 23:26:41,634 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:27:00,465 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:27:42,689 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:28:31,021 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:29:10,348 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-23 23:29:11,689 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:29:53,637 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-23 23:29:55,029 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:30:11,358 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-23 23:30:12,695 autoreload Watching for file changes with StatReloader
+INFO 2026-10-23 23:31:02,644 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-23 23:31:03,895 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 00:26:31,690 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-24 00:26:33,901 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 00:26:49,597 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\kaya\settings.py changed, reloading.
+INFO 2026-10-24 00:26:51,742 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 00:30:13,098 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 00:30:31,652 basehttp "GET / HTTP/1.1" 200 79879
+INFO 2026-10-24 00:30:32,102 basehttp "GET /static/css/themify-icons.css HTTP/1.1" 200 17501
+INFO 2026-10-24 00:30:32,106 basehttp "GET /static/css/font-awesome.min.css HTTP/1.1" 200 29027
+INFO 2026-10-24 00:30:32,107 basehttp "GET /static/css/flaticon.css HTTP/1.1" 200 2039
+INFO 2026-10-24 00:30:32,113 basehttp "GET /static/css/owl.carousel.css HTTP/1.1" 200 4830
+INFO 2026-10-24 00:30:32,116 basehttp "GET /static/css/owl.theme.css HTTP/1.1" 200 1055
+INFO 2026-10-24 00:30:32,119 basehttp "GET /static/css/slick.css HTTP/1.1" 200 1846
+INFO 2026-10-24 00:30:32,125 basehttp "GET /static/css/animate.css HTTP/1.1" 200 80360
+INFO 2026-10-24 00:30:32,131 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 200 155637
+INFO 2026-10-24 00:30:32,131 basehttp "GET /static/css/slick-theme.css HTTP/1.1" 200 3362
+INFO 2026-10-24 00:30:32,139 basehttp "GET /static/css/swiper.min.css HTTP/1.1" 200 19004
+INFO 2026-10-24 00:30:32,144 basehttp "GET /static/css/owl.transitions.css HTTP/1.1" 200 4638
+INFO 2026-10-24 00:30:32,145 basehttp "GET /static/css/jquery.fancybox.css HTTP/1.1" 200 5277
+INFO 2026-10-24 00:30:32,150 basehttp "GET /static/css/odometer-theme-default.css HTTP/1.1" 200 3652
+INFO 2026-10-24 00:30:32,163 basehttp "GET /static/images/preloader.png HTTP/1.1" 200 25465
+INFO 2026-10-24 00:30:32,180 basehttp "GET /static/css/style.css HTTP/1.1" 200 237379
+INFO 2026-10-24 00:30:32,182 basehttp "GET /static/images/kaya/logo-use.png HTTP/1.1" 200 202961
+INFO 2026-10-24 00:30:32,282 basehttp "GET /static/js/modernizr.custom.js HTTP/1.1" 200 9177
+INFO 2026-10-24 00:30:32,286 basehttp "GET /media/images/site/banners/b3.png HTTP/1.1" 200 2299045
+INFO 2026-10-24 00:30:32,287 basehttp "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 78754
+INFO 2026-10-24 00:30:32,288 basehttp "GET /media/images/site/banners/diwali-banner.png HTTP/1.1" 200 2260755
+INFO 2026-10-24 00:30:32,292 basehttp "GET /media/images/site/banners/b2.png HTTP/1.1" 200 2252174
+INFO 2026-10-24 00:30:32,296 basehttp "GET /static/js/jquery.min.js HTTP/1.1" 200 89501
+INFO 2026-10-24 00:30:32,348 basehttp "GET /static/js/jquery.dlmenu.js HTTP/1.1" 200 7265
+INFO 2026-10-24 00:30:32,380 basehttp "GET /static/js/script.js HTTP/1.1" 200 29505
+INFO 2026-10-24 00:30:32,398 basehttp "GET /media/images/products/images/Red.jpeg HTTP/1.1" 200 176455
+INFO 2026-10-24 00:30:32,461 basehttp "GET /static/js/jquery-plugin-collection.js HTTP/1.1" 200 386402
+INFO 2026-10-24 00:30:32,499 basehttp "GET /static/fonts/flaticon.ttf HTTP/1.1" 200 22016
+INFO 2026-10-24 00:30:32,502 basehttp "GET /media/images/products/images/red-3.png HTTP/1.1" 200 2062266
+INFO 2026-10-24 00:30:32,523 basehttp "GET /media/images/products/images/1dd84c1f-5ca5-4f4a-9647-bf7f0e8d3971.png HTTP/1.1" 200 2292798
+INFO 2026-10-24 00:30:32,547 basehttp "GET /static/fonts/themify.woff HTTP/1.1" 200 56108
+INFO 2026-10-24 00:30:32,548 basehttp "GET /media/images/products/images/blouse-red.png HTTP/1.1" 200 2473427
+INFO 2026-10-24 00:30:32,572 basehttp "GET /media/images/products/images/img2.jfif HTTP/1.1" 200 144498
+INFO 2026-10-24 00:30:32,601 basehttp "GET /static/fonts/fontawesome-webfont.woff2 HTTP/1.1" 200 71896
+INFO 2026-10-24 00:30:32,631 basehttp "GET /media/images/products/images/yellow.png HTTP/1.1" 200 2348072
+INFO 2026-10-24 00:30:32,648 basehttp "GET /media/images/site/banners/1.jpg HTTP/1.1" 200 190133
+INFO 2026-10-24 00:30:32,672 basehttp "GET /media/images/products/images/purple-image.png HTTP/1.1" 200 2710824
+INFO 2026-10-24 00:30:32,673 basehttp "GET /media/newsletters/images/Sarees_Under_2000_That_Look_Like_You_Spent_10_000_d49deeb6-6c46-4f29_GXOso5N.webp HTTP/1.1" 200 45416
+INFO 2026-10-24 00:30:32,696 basehttp "GET /media/newsletters/images/blog_images_1_d31c7d3b-dd5c-4257-8814-9d95daceb809.webp HTTP/1.1" 200 75860
+INFO 2026-10-24 00:30:32,711 basehttp "GET /media/newsletters/images/news-5.webp HTTP/1.1" 200 48226
+INFO 2026-10-24 00:30:32,714 basehttp "GET /media/images/site/banners/exclusive-banner.png HTTP/1.1" 200 1979488
+INFO 2026-10-24 00:30:32,723 basehttp "GET /static/images/kaya/logo-footer.png HTTP/1.1" 200 244859
+INFO 2026-10-24 00:30:32,735 basehttp "GET /media/images/site/banners/Gemini_Generated_Image_nt2whfnt2whfnt2w.png HTTP/1.1" 200 2224759
+INFO 2026-10-24 00:30:32,755 basehttp "GET /media/images/products/images/Image-4.png HTTP/1.1" 200 2714936
+INFO 2026-10-24 00:30:32,799 basehttp "GET /static/images/ajax-loader.gif HTTP/1.1" 200 4178
+INFO 2026-10-24 00:30:33,008 basehttp "GET /static/images/kaya/favicon_io/favicon.png HTTP/1.1" 200 5792
+INFO 2026-10-24 00:30:50,329 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2026-10-24 00:30:50,391 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-10-24 00:30:50,702 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2026-10-24 00:30:50,759 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-10-24 00:30:50,768 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-10-24 00:30:50,769 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-10-24 00:30:50,773 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-10-24 00:30:50,783 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-10-24 00:30:50,793 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-10-24 00:30:50,854 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-10-24 00:30:50,894 log Not Found: /favicon.ico
+WARNING 2026-10-24 00:30:50,896 basehttp "GET /favicon.ico HTTP/1.1" 404 5283
+INFO 2026-10-24 11:59:49,698 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 11:59:53,263 basehttp "GET / HTTP/1.1" 200 79879
+INFO 2026-10-24 11:59:53,756 basehttp "GET /static/css/themify-icons.css HTTP/1.1" 200 17501
+INFO 2026-10-24 11:59:53,765 basehttp "GET /static/css/font-awesome.min.css HTTP/1.1" 200 29027
+INFO 2026-10-24 11:59:53,765 basehttp "GET /static/css/owl.theme.css HTTP/1.1" 200 1055
+INFO 2026-10-24 11:59:53,765 basehttp "GET /static/css/flaticon.css HTTP/1.1" 200 2039
+INFO 2026-10-24 11:59:53,776 basehttp "GET /static/css/slick.css HTTP/1.1" 200 1846
+INFO 2026-10-24 11:59:53,777 basehttp "GET /static/css/slick-theme.css HTTP/1.1" 200 3362
+INFO 2026-10-24 11:59:53,789 basehttp "GET /static/css/swiper.min.css HTTP/1.1" 200 19004
+INFO 2026-10-24 11:59:53,790 basehttp "GET /static/css/owl.transitions.css HTTP/1.1" 200 4638
+INFO 2026-10-24 11:59:53,794 basehttp "GET /static/css/owl.carousel.css HTTP/1.1" 200 4830
+INFO 2026-10-24 11:59:53,795 basehttp "GET /static/css/jquery.fancybox.css HTTP/1.1" 200 5277
+INFO 2026-10-24 11:59:53,800 basehttp "GET /static/css/odometer-theme-default.css HTTP/1.1" 200 3652
+INFO 2026-10-24 11:59:53,805 basehttp "GET /static/css/animate.css HTTP/1.1" 200 80360
+INFO 2026-10-24 11:59:53,813 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 200 155637
+INFO 2026-10-24 11:59:53,820 basehttp "GET /static/css/style.css HTTP/1.1" 200 237379
+INFO 2026-10-24 11:59:53,834 basehttp "GET /static/images/preloader.png HTTP/1.1" 200 25465
+INFO 2026-10-24 11:59:53,847 basehttp "GET /static/images/kaya/logo-use.png HTTP/1.1" 200 202961
+INFO 2026-10-24 11:59:53,938 basehttp "GET /media/images/site/banners/diwali-banner.png HTTP/1.1" 200 2260755
+INFO 2026-10-24 11:59:53,943 basehttp "GET /media/images/site/banners/b3.png HTTP/1.1" 200 2299045
+INFO 2026-10-24 11:59:53,948 basehttp "GET /media/images/site/banners/b2.png HTTP/1.1" 200 2252174
+INFO 2026-10-24 11:59:53,953 basehttp "GET /static/js/jquery.min.js HTTP/1.1" 200 89501
+INFO 2026-10-24 11:59:53,969 basehttp "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 78754
+INFO 2026-10-24 11:59:53,969 basehttp "GET /static/js/modernizr.custom.js HTTP/1.1" 200 9177
+INFO 2026-10-24 11:59:53,975 basehttp "GET /static/js/jquery.dlmenu.js HTTP/1.1" 200 7265
+INFO 2026-10-24 11:59:53,982 basehttp "GET /static/js/script.js HTTP/1.1" 200 29505
+INFO 2026-10-24 11:59:53,998 basehttp "GET /static/js/jquery-plugin-collection.js HTTP/1.1" 200 386402
+INFO 2026-10-24 11:59:54,072 basehttp "GET /media/images/products/images/red-3.png HTTP/1.1" 200 2062266
+INFO 2026-10-24 11:59:54,074 basehttp "GET /media/images/products/images/blouse-red.png HTTP/1.1" 200 2473427
+INFO 2026-10-24 11:59:54,092 basehttp "GET /media/images/products/images/Red.jpeg HTTP/1.1" 200 176455
+INFO 2026-10-24 11:59:54,145 basehttp "GET /media/images/products/images/1dd84c1f-5ca5-4f4a-9647-bf7f0e8d3971.png HTTP/1.1" 200 2292798
+INFO 2026-10-24 11:59:54,161 basehttp "GET /media/images/products/images/yellow.png HTTP/1.1" 200 2348072
+INFO 2026-10-24 11:59:54,204 basehttp "GET /media/images/products/images/purple-image.png HTTP/1.1" 200 2710824
+INFO 2026-10-24 11:59:54,214 basehttp "GET /media/images/products/images/img2.jfif HTTP/1.1" 200 144498
+INFO 2026-10-24 11:59:54,218 basehttp "GET /media/images/products/images/Image-4.png HTTP/1.1" 200 2714936
+INFO 2026-10-24 11:59:54,256 basehttp "GET /media/images/site/banners/exclusive-banner.png HTTP/1.1" 200 1979488
+INFO 2026-10-24 11:59:54,263 basehttp "GET /media/images/site/banners/Gemini_Generated_Image_nt2whfnt2whfnt2w.png HTTP/1.1" 200 2224759
+INFO 2026-10-24 11:59:54,266 basehttp "GET /media/images/site/banners/1.jpg HTTP/1.1" 200 190133
+INFO 2026-10-24 11:59:54,274 basehttp "GET /media/newsletters/images/Sarees_Under_2000_That_Look_Like_You_Spent_10_000_d49deeb6-6c46-4f29_GXOso5N.webp HTTP/1.1" 200 45416
+INFO 2026-10-24 11:59:54,277 basehttp "GET /media/newsletters/images/blog_images_1_d31c7d3b-dd5c-4257-8814-9d95daceb809.webp HTTP/1.1" 200 75860
+INFO 2026-10-24 11:59:54,284 basehttp "GET /media/newsletters/images/news-5.webp HTTP/1.1" 200 48226
+INFO 2026-10-24 11:59:54,289 basehttp "GET /static/images/kaya/logo-footer.png HTTP/1.1" 200 244859
+INFO 2026-10-24 11:59:54,640 basehttp "GET /static/fonts/flaticon.ttf HTTP/1.1" 200 22016
+INFO 2026-10-24 11:59:54,644 basehttp "GET /static/fonts/themify.woff HTTP/1.1" 200 56108
+INFO 2026-10-24 11:59:57,771 basehttp "GET /static/fonts/fontawesome-webfont.woff2 HTTP/1.1" 200 71896
+INFO 2026-10-24 11:59:57,821 basehttp "GET /static/images/ajax-loader.gif HTTP/1.1" 200 4178
+INFO 2026-10-24 12:00:01,116 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2026-10-24 12:00:01,193 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-10-24 12:00:01,293 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2026-10-24 12:00:01,333 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-10-24 12:00:01,338 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-10-24 12:00:01,340 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-10-24 12:00:01,342 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-10-24 12:00:01,343 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-10-24 12:00:01,346 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-10-24 12:00:01,361 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-10-24 12:00:01,430 log Not Found: /favicon.ico
+WARNING 2026-10-24 12:00:01,432 basehttp "GET /favicon.ico HTTP/1.1" 404 5283
+INFO 2026-10-24 12:00:10,683 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2026-10-24 12:00:30,113 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2026-10-24 12:01:14,509 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2026-10-24 12:01:25,742 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2026-10-24 12:27:15,523 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 12:27:19,884 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2026-10-24 12:27:34,953 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-10-24 12:27:35,063 basehttp "GET /admin/ HTTP/1.1" 200 17397
+INFO 2026-10-24 12:27:35,363 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-10-24 12:27:35,375 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-10-24 12:27:35,378 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+WARNING 2026-10-24 12:28:05,803 log Not Found: /login
+WARNING 2026-10-24 12:28:05,804 basehttp "GET /login HTTP/1.1" 404 5265
+INFO 2026-10-24 12:28:13,667 basehttp "GET /admin/login HTTP/1.1" 301 0
+INFO 2026-10-24 12:28:13,687 basehttp "GET /admin/login/ HTTP/1.1" 302 0
+INFO 2026-10-24 12:28:13,745 basehttp "GET /admin/ HTTP/1.1" 200 17397
+INFO 2026-10-24 12:28:41,300 basehttp "GET / HTTP/1.1" 200 79879
+INFO 2026-10-24 12:28:52,090 basehttp "POST /cart/add/silk-saree-with-designer-border/ HTTP/1.1" 302 0
+INFO 2026-10-24 12:28:52,167 basehttp "GET /cart/ HTTP/1.1" 200 49322
+INFO 2026-10-24 12:28:52,399 basehttp "GET /static/images/aboutus.png HTTP/1.1" 200 2578397
+INFO 2026-10-24 12:28:59,865 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 12:33:02,984 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 12:33:02,986 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 12:33:03,527 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 12:33:03,527 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 12:33:03,918 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 12:33:03,920 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 13:18:48,314 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 13:18:50,272 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 13:18:59,431 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+ERROR 2026-10-24 13:22:06,620 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 327, in razorpay_payment_return
+    return render(
+        request,
+    ...<2 lines>...
+        status=400,
+    )
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: payment_failed.html
+ERROR 2026-10-24 13:22:06,627 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 94536
+WARNING 2026-10-24 13:22:06,706 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 13:22:06,707 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+INFO 2026-10-24 13:27:20,364 basehttp "GET / HTTP/1.1" 200 81795
+INFO 2026-10-24 13:28:12,572 basehttp "GET /cart/ HTTP/1.1" 200 48933
+INFO 2026-10-24 13:31:04,326 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 13:31:05,110 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 13:31:12,586 basehttp "GET /cart/ HTTP/1.1" 200 48933
+INFO 2026-10-24 13:31:12,604 basehttp "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,605 basehttp "GET /static/css/themify-icons.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,607 basehttp "GET /static/css/flaticon.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,610 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,610 basehttp "GET /static/css/slick.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,611 basehttp "GET /static/css/animate.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,611 basehttp "GET /static/css/owl.theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,611 basehttp "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,613 basehttp "GET /static/css/slick-theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,616 basehttp "GET /static/css/odometer-theme-default.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,616 basehttp "GET /static/css/swiper.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,617 basehttp "GET /static/css/owl.transitions.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,619 basehttp "GET /static/css/jquery.fancybox.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,621 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,623 basehttp "GET /static/images/kaya/logo-footer.png HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,623 basehttp "GET /static/images/preloader.png HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,624 basehttp "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,628 basehttp "GET /static/js/modernizr.custom.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,628 basehttp "GET /static/images/kaya/logo-use.png HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,628 basehttp "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,628 basehttp "GET /static/js/jquery.dlmenu.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,630 basehttp "GET /static/js/script.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,632 basehttp "GET /static/js/jquery-plugin-collection.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,635 basehttp "GET /media/images/products/images/red-3.png HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,689 basehttp "GET /static/images/ajax-loader.gif HTTP/1.1" 304 0
+INFO 2026-10-24 13:31:12,941 basehttp "GET /static/images/kaya/favicon_io/favicon.png HTTP/1.1" 200 5792
+INFO 2026-10-24 13:31:17,055 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+ERROR 2026-10-24 13:33:47,089 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 327, in razorpay_payment_return
+    return render(
+        request,
+    ...<2 lines>...
+        status=400,
+    )
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: payment_failed.html
+ERROR 2026-10-24 13:33:47,096 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 94536
+INFO 2026-10-24 13:34:09,980 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 13:34:10,824 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 13:34:29,707 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 13:34:30,378 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-24 13:34:45,348 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 13:34:45,349 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 13:34:50,915 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 13:35:26,968 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 13:35:26,969 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 13:37:30,940 basehttp "GET /admin/orders/order/ HTTP/1.1" 200 22035
+INFO 2026-10-24 13:37:30,963 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:30,964 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:30,965 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:30,969 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:31,050 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-10-24 13:37:31,275 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2026-10-24 13:37:31,296 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-10-24 13:37:31,297 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-10-24 13:37:31,300 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:31,308 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-10-24 13:37:31,314 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-10-24 13:37:31,321 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2026-10-24 13:37:31,322 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-10-24 13:37:31,323 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2026-10-24 13:37:31,383 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-10-24 13:37:31,386 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-10-24 13:37:31,389 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-10-24 13:37:31,406 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-10-24 13:37:31,427 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2026-10-24 13:37:31,428 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2026-10-24 13:37:31,428 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2026-10-24 15:10:16,566 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 15:10:18,308 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:10:33,078 basehttp "GET / HTTP/1.1" 200 81795
+INFO 2026-10-24 15:10:33,111 basehttp "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,111 basehttp "GET /static/css/themify-icons.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,117 basehttp "GET /static/css/flaticon.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,143 basehttp "GET /static/css/owl.theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,145 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,146 basehttp "GET /static/css/slick.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,148 basehttp "GET /static/css/animate.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,155 basehttp "GET /static/css/slick-theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,156 basehttp "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,160 basehttp "GET /static/css/swiper.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,161 basehttp "GET /static/css/owl.transitions.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,166 basehttp "GET /static/css/jquery.fancybox.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,173 basehttp "GET /static/css/odometer-theme-default.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,178 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,180 basehttp "GET /media/images/site/banners/diwali-banner.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,182 basehttp "GET /static/images/kaya/logo-use.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,187 basehttp "GET /media/images/site/banners/b3.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,190 basehttp "GET /media/images/site/banners/b2.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,191 basehttp "GET /static/images/preloader.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,195 basehttp "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,197 basehttp "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,199 basehttp "GET /static/js/modernizr.custom.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,203 basehttp "GET /static/js/jquery.dlmenu.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,207 basehttp "GET /static/js/jquery-plugin-collection.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,210 basehttp "GET /static/js/script.js HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,212 basehttp "GET /media/images/products/images/red-3.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,223 basehttp "GET /media/images/products/images/1dd84c1f-5ca5-4f4a-9647-bf7f0e8d3971.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,223 basehttp "GET /media/images/products/images/blouse-red.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,229 basehttp "GET /media/images/products/images/Red.jpeg HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,237 basehttp "GET /media/images/products/images/yellow.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,249 basehttp "GET /media/images/products/images/purple-image.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,297 basehttp "GET /static/fonts/flaticon.ttf HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,298 basehttp "GET /media/images/products/images/Image-4.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,298 basehttp "GET /static/fonts/themify.woff HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,299 basehttp "GET /media/images/products/images/img2.jfif HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,309 basehttp "GET /media/images/site/banners/Gemini_Generated_Image_nt2whfnt2whfnt2w.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,310 basehttp "GET /media/images/site/banners/1.jpg HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,311 basehttp "GET /media/images/site/banners/exclusive-banner.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,311 basehttp "GET /media/newsletters/images/Sarees_Under_2000_That_Look_Like_You_Spent_10_000_d49deeb6-6c46-4f29_GXOso5N.webp HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,315 basehttp "GET /media/newsletters/images/blog_images_1_d31c7d3b-dd5c-4257-8814-9d95daceb809.webp HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,323 basehttp "GET /media/newsletters/images/news-5.webp HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,324 basehttp "GET /static/images/kaya/logo-footer.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,432 basehttp "GET /static/fonts/fontawesome-webfont.woff2 HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:33,499 basehttp "GET /static/images/ajax-loader.gif HTTP/1.1" 304 0
+INFO 2026-10-24 15:10:42,388 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 15:11:33,724 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 15:11:33,729 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 15:14:32,167 basehttp "GET / HTTP/1.1" 200 81795
+INFO 2026-10-24 15:14:32,749 basehttp "GET /static/images/kaya/favicon_io/favicon.png HTTP/1.1" 304 0
+INFO 2026-10-24 15:14:49,124 basehttp "GET / HTTP/1.1" 200 81795
+INFO 2026-10-24 15:14:53,386 basehttp "POST /cart/add/silk-saree-with-designer-border/ HTTP/1.1" 302 0
+INFO 2026-10-24 15:14:53,588 basehttp "GET /cart/ HTTP/1.1" 200 49326
+INFO 2026-10-24 15:14:53,685 basehttp "GET /static/images/aboutus.png HTTP/1.1" 304 0
+WARNING 2026-10-24 15:15:01,931 log Not Found: /cart/remove/3/
+WARNING 2026-10-24 15:15:01,933 basehttp "POST /cart/remove/3/ HTTP/1.1" 404 4684
+WARNING 2026-10-24 15:15:13,069 log Not Found: /cart/remove/3/
+WARNING 2026-10-24 15:15:13,071 basehttp "POST /cart/remove/3/ HTTP/1.1" 404 4684
+WARNING 2026-10-24 15:15:27,633 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 15:15:27,634 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 15:15:27,846 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 15:15:27,846 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 15:15:27,947 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 15:15:27,948 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 15:15:43,461 basehttp "GET / HTTP/1.1" 200 81795
+WARNING 2026-10-24 15:15:43,579 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 15:15:43,585 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 15:15:43,685 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 15:15:43,685 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 15:15:43,943 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 15:15:43,956 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 15:15:48,951 basehttp "POST /cart/add/georgette-saree-styles-like-heavy-border-work-designer/ HTTP/1.1" 302 0
+INFO 2026-10-24 15:15:49,007 basehttp "GET /cart/ HTTP/1.1" 200 53763
+WARNING 2026-10-24 15:15:49,111 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 15:15:49,112 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 15:15:49,214 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 15:15:49,214 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 15:15:49,310 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 15:15:49,318 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 15:16:03,548 basehttp "GET / HTTP/1.1" 200 83600
+WARNING 2026-10-24 15:16:03,647 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 15:16:03,648 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 15:16:03,760 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 15:16:03,761 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 15:16:03,861 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 15:16:03,874 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 15:20:56,037 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 15:20:57,836 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:21:27,060 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:21:28,468 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:21:31,526 basehttp "GET / HTTP/1.1" 200 83600
+WARNING 2026-10-24 15:21:31,619 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 15:21:31,620 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 15:21:31,684 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 15:21:31,687 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 15:21:31,900 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 15:21:31,942 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 15:21:56,961 basehttp "GET / HTTP/1.1" 200 83600
+INFO 2026-10-24 15:22:13,814 basehttp "POST /cart/add/bandhani-printed-saree/ HTTP/1.1" 302 0
+INFO 2026-10-24 15:22:13,876 basehttp "GET /cart/ HTTP/1.1" 200 58004
+INFO 2026-10-24 15:22:21,162 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 15:23:05,383 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 15:23:05,385 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 15:24:39,078 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:24:40,473 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:24:47,293 basehttp "GET /cart/ HTTP/1.1" 200 57615
+INFO 2026-10-24 15:24:50,619 basehttp "GET /cart/ HTTP/1.1" 200 57615
+INFO 2026-10-24 15:25:02,495 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:25:03,930 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:25:23,755 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:25:25,172 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 15:25:27,383 log Internal Server Error: /cart/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py", line 712, in cart_view
+    request.session.destroy()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute 'destroy'
+ERROR 2026-10-24 15:25:27,391 basehttp "GET /cart/ HTTP/1.1" 500 71589
+WARNING 2026-10-24 15:25:27,487 log Not Found: /favicon.ico
+WARNING 2026-10-24 15:25:27,488 basehttp "GET /favicon.ico HTTP/1.1" 404 5283
+INFO 2026-10-24 15:26:34,676 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:26:36,129 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:26:38,512 basehttp "GET /cart/ HTTP/1.1" 200 41977
+INFO 2026-10-24 15:26:46,501 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\home\views.py changed, reloading.
+INFO 2026-10-24 15:26:47,952 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:26:48,814 basehttp "GET /cart/ HTTP/1.1" 200 41977
+INFO 2026-10-24 15:26:55,626 basehttp "GET / HTTP/1.1" 200 79879
+INFO 2026-10-24 15:27:01,456 basehttp "POST /cart/add/silk-saree-with-designer-border/ HTTP/1.1" 302 0
+INFO 2026-10-24 15:27:01,494 basehttp "GET /cart/ HTTP/1.1" 200 49322
+INFO 2026-10-24 15:27:13,799 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 15:27:48,064 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 15:27:48,065 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 15:32:24,964 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 15:32:26,211 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 15:32:38,484 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 15:32:40,024 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-24 15:32:45,057 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 15:32:45,059 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 15:32:50,531 basehttp "GET /cart/ HTTP/1.1" 200 48933
+INFO 2026-10-24 15:32:55,859 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+WARNING 2026-10-24 15:33:29,058 log Bad Request: /orders/razorpay-payment-return/
+WARNING 2026-10-24 15:33:29,063 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 400 0
+INFO 2026-10-24 15:39:12,214 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 15:39:13,462 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 15:39:22,574 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 349, in razorpay_payment_return
+    client.utility.verify_payment_signature({
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        "razorpay_order_id": order.razorpay_order_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "razorpay_payment_id": payment_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "razorpay_signature": signature,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\razorpay\utility\utility.py", line 22, in verify_payment_signature
+    return self.verify_signature(msg, razorpay_signature, secret)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\razorpay\utility\utility.py", line 76, in verify_signature
+    raise SignatureVerificationError(
+        'Razorpay Signature Verification Failed')
+razorpay.errors.SignatureVerificationError: Razorpay Signature Verification Failed
+ERROR 2026-10-24 15:39:22,583 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 89502
+INFO 2026-10-24 16:14:23,113 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:14:24,662 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:14:27,774 basehttp "GET /cart/ HTTP/1.1" 200 48933
+INFO 2026-10-24 16:14:31,462 basehttp "GET /cart/ HTTP/1.1" 200 48933
+INFO 2026-10-24 16:14:36,166 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+ERROR 2026-10-24 16:15:15,103 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 349, in razorpay_payment_return
+    client.utility.verify_payment_signature({
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        "razorpay_order_id": order.razorpay_order_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "razorpay_payment_id": payment_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "razorpay_signature": signature,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\razorpay\utility\utility.py", line 22, in verify_payment_signature
+    return self.verify_signature(msg, razorpay_signature, secret)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\razorpay\utility\utility.py", line 76, in verify_signature
+    raise SignatureVerificationError(
+        'Razorpay Signature Verification Failed')
+razorpay.errors.SignatureVerificationError: Razorpay Signature Verification Failed
+ERROR 2026-10-24 16:15:15,107 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 89371
+INFO 2026-10-24 16:21:46,693 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:21:48,164 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:23:26,204 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:23:27,370 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:24:47,570 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:24:48,924 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:24:59,167 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 383, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:24:59,188 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 100616
+INFO 2026-10-24 16:26:54,070 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:26:55,343 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:27:02,373 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 385, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:27:02,383 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 101009
+INFO 2026-10-24 16:29:15,556 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:29:16,834 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:29:31,242 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:29:32,566 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:29:40,492 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 417, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:29:40,513 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 102974
+INFO 2026-10-24 16:30:00,062 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:30:01,270 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:30:10,380 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 417, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:30:10,390 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 102983
+INFO 2026-10-24 16:31:02,365 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:31:03,779 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:31:07,775 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:31:09,039 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:31:18,295 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 417, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:31:18,307 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 102983
+INFO 2026-10-24 16:31:58,755 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:32:00,197 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:32:07,034 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 417, in razorpay_payment_return
+    return redirect("checkout")
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'checkout' not found. 'checkout' is not a valid view function or pattern name.
+ERROR 2026-10-24 16:32:07,047 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 102983
+ERROR 2026-10-24 16:33:54,588 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:33:54,597 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83809
+INFO 2026-10-24 16:36:00,285 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:36:01,509 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:36:12,738 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:36:14,149 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:36:17,798 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:36:17,811 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83812
+INFO 2026-10-24 16:36:53,161 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:36:54,652 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:37:02,997 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:37:03,002 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83812
+INFO 2026-10-24 16:38:39,777 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:38:41,114 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:38:46,299 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:38:47,569 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:38:53,425 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:38:53,432 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83812
+INFO 2026-10-24 16:41:23,708 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:41:25,184 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:41:32,654 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:41:32,661 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83815
+INFO 2026-10-24 16:44:42,027 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:44:43,261 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:44:51,004 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:44:51,011 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83659
+INFO 2026-10-24 16:45:24,189 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:45:25,510 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:45:39,572 log Internal Server Error: /orders/razorpay-payment-return/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 449, in razorpay_payment_return
+    payment.objects.create(
+    ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'objects'
+ERROR 2026-10-24 16:45:39,579 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 500 83659
+INFO 2026-10-24 16:46:57,620 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:46:58,915 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:47:11,786 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 302 0
+INFO 2026-10-24 16:47:11,805 basehttp "GET /orders/payment-success/ HTTP/1.1" 302 0
+WARNING 2026-10-24 16:47:11,831 log Not Found: /accounts/login/
+WARNING 2026-10-24 16:47:11,832 basehttp "GET /accounts/login/?next=/orders/payment-success/ HTTP/1.1" 404 5325
+INFO 2026-10-24 16:49:10,532 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:49:12,016 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-24 16:49:15,559 log Not Found: /accounts/login/
+WARNING 2026-10-24 16:49:15,563 basehttp "GET /accounts/login/?next=/orders/payment-success/ HTTP/1.1" 404 5325
+INFO 2026-10-24 16:49:17,856 basehttp "GET /cart/ HTTP/1.1" 200 44434
+INFO 2026-10-24 16:49:26,746 basehttp "GET / HTTP/1.1" 200 79879
+INFO 2026-10-24 16:49:32,138 basehttp "POST /cart/add/designer-border-and-traditional-floral-pattern-purple/ HTTP/1.1" 302 0
+INFO 2026-10-24 16:49:32,205 basehttp "GET /cart/ HTTP/1.1" 200 49428
+INFO 2026-10-24 16:49:38,985 basehttp "GET / HTTP/1.1" 200 81848
+ERROR 2026-10-24 16:49:46,272 log Internal Server Error: /orders/create-razorpay-order/
+ERROR 2026-10-24 16:49:46,273 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 500 58
+INFO 2026-10-24 16:49:57,047 basehttp "POST /cart/add/georgette-saree-styles-like-heavy-border-work-designer/ HTTP/1.1" 302 0
+INFO 2026-10-24 16:49:57,100 basehttp "GET /cart/ HTTP/1.1" 200 53868
+INFO 2026-10-24 16:50:07,960 basehttp "POST /cart/remove/7/ HTTP/1.1" 200 88
+INFO 2026-10-24 16:50:11,023 basehttp "GET /cart/ HTTP/1.1" 200 49079
+ERROR 2026-10-24 16:50:18,193 log Internal Server Error: /orders/create-razorpay-order/
+ERROR 2026-10-24 16:50:18,194 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 500 58
+ERROR 2026-10-24 16:50:36,492 log Internal Server Error: /orders/create-razorpay-order/
+ERROR 2026-10-24 16:50:36,493 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 500 58
+INFO 2026-10-24 16:51:12,194 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:51:13,624 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-24 16:51:21,674 log Internal Server Error: /orders/create-razorpay-order/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 277, in create_razorpay_order
+    if razorpay_order.status == "created":
+       ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'status'
+ERROR 2026-10-24 16:51:21,684 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 500 78270
+WARNING 2026-10-24 16:51:28,399 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 16:51:28,400 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 16:51:28,678 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 16:51:28,686 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 16:51:28,769 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 16:51:28,780 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+ERROR 2026-10-24 16:51:31,613 log Internal Server Error: /orders/create-razorpay-order/
+Traceback (most recent call last):
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\.env\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py", line 277, in create_razorpay_order
+    if razorpay_order.status == "created":
+       ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'status'
+ERROR 2026-10-24 16:51:31,617 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 500 78270
+INFO 2026-10-24 16:52:51,058 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 16:52:52,466 autoreload Watching for file changes with StatReloader
+INFO 2026-10-24 16:53:00,582 basehttp "POST /orders/create-razorpay-order/ HTTP/1.1" 200 128
+INFO 2026-10-24 16:53:36,519 basehttp "POST /orders/razorpay-payment-return/ HTTP/1.1" 302 0
+INFO 2026-10-24 16:53:36,574 basehttp "GET /orders/payment-success/ HTTP/1.1" 200 271
+WARNING 2026-10-24 16:53:36,694 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 16:53:36,695 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+INFO 2026-10-24 23:27:56,261 basehttp "GET / HTTP/1.1" 200 80264
+INFO 2026-10-24 23:27:56,297 basehttp "GET /static/css/flaticon.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,298 basehttp "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,299 basehttp "GET /static/css/themify-icons.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,307 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,308 basehttp "GET /static/css/owl.carousel.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,308 basehttp "GET /static/css/animate.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,318 basehttp "GET /static/css/slick.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,318 basehttp "GET /static/css/owl.theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,320 basehttp "GET /static/css/slick-theme.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,330 basehttp "GET /static/css/jquery.fancybox.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,330 basehttp "GET /static/css/owl.transitions.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,331 basehttp "GET /static/css/swiper.min.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,341 basehttp "GET /static/css/odometer-theme-default.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,342 basehttp "GET /static/images/kaya/logo-use.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,342 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,345 basehttp "GET /static/images/preloader.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,355 basehttp "GET /media/images/site/banners/b3.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,356 basehttp "GET /media/images/site/banners/diwali-banner.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,386 basehttp "GET /media/images/site/banners/b2.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,390 basehttp "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,398 basehttp "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,404 basehttp "GET /static/js/modernizr.custom.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,409 basehttp "GET /static/js/jquery.dlmenu.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,548 basehttp "GET /static/js/script.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,548 basehttp "GET /static/js/jquery-plugin-collection.js HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,548 basehttp "GET /static/fonts/flaticon.ttf HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,549 basehttp "GET /static/fonts/themify.woff HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,583 basehttp "GET /media/images/products/images/blouse-red.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,615 basehttp "GET /static/fonts/fontawesome-webfont.woff2 HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,616 basehttp "GET /static/images/ajax-loader.gif HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,640 basehttp "GET /media/images/products/images/red-3.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,641 basehttp "GET /media/images/products/images/Red.jpeg HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,641 basehttp "GET /media/images/products/images/1dd84c1f-5ca5-4f4a-9647-bf7f0e8d3971.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,649 basehttp "GET /media/images/products/images/yellow.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,666 basehttp "GET /media/images/products/images/purple-image.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,670 basehttp "GET /media/images/products/images/Image-4.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,677 basehttp "GET /media/images/products/images/img2.jfif HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,684 basehttp "GET /media/images/site/banners/exclusive-banner.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,698 basehttp "GET /media/images/site/banners/Gemini_Generated_Image_nt2whfnt2whfnt2w.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,700 basehttp "GET /media/images/site/banners/1.jpg HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,710 basehttp "GET /media/newsletters/images/Sarees_Under_2000_That_Look_Like_You_Spent_10_000_d49deeb6-6c46-4f29_GXOso5N.webp HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,711 basehttp "GET /media/newsletters/images/blog_images_1_d31c7d3b-dd5c-4257-8814-9d95daceb809.webp HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,718 basehttp "GET /media/newsletters/images/news-5.webp HTTP/1.1" 304 0
+INFO 2026-10-24 23:27:56,718 basehttp "GET /static/images/kaya/logo-footer.png HTTP/1.1" 304 0
+INFO 2026-10-24 23:34:11,904 basehttp "GET / HTTP/1.1" 200 79879
+WARNING 2026-10-24 23:34:11,979 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-10-24 23:34:11,980 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5394
+WARNING 2026-10-24 23:34:12,111 basehttp "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 2002
+WARNING 2026-10-24 23:34:12,112 basehttp "GET /static/css/style.css.map HTTP/1.1" 404 1978
+WARNING 2026-10-24 23:34:13,266 basehttp "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+WARNING 2026-10-24 23:34:13,268 basehttp "GET /static/js/swiper.min.js.map HTTP/1.1" 404 1987
+INFO 2026-10-24 23:38:32,106 autoreload C:\python projects\chandankumarproject\kayafashion\kaya\apps\orders\views.py changed, reloading.
+INFO 2026-10-24 23:38:33,410 autoreload Watching for file changes with StatReloader
